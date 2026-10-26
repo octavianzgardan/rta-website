@@ -10,7 +10,7 @@ def fix_old(k, c):
         c = c.replace("<p>Il legale rappresentante dell'impresa può anche fare da RT per la propria azienda, a condizione di avere almeno 3 anni consecutivi di esperienza nel ruolo — ma non può farlo per altre aziende.</p>",
             "<p>Il legale rappresentante può fare da RT solo per la propria impresa. Con la Delibera n. 6/2025, in vigore dal 2 gennaio 2026, la dispensa dalla verifica richiede tre anni di esperienza <strong>e</strong> un diploma di scuola superiore: molti titolari di piccole imprese non possono più autonominarsi. Ne parlo qui: <a href=\"/guide/delibera-6-2025-legale-rappresentante-rt/\">il titolare può ancora fare da RT?</a></p>")
         c = c.replace("il canone mensile parte da circa <strong>€200/mese</strong>. Puoi calcolare il preventivo preciso per la tua situazione direttamente da questo sito.",
-            "il canone parte da <strong>€220/mese</strong>, prezzo finale. Trovi il <a href=\"/prezzi/\">listino completo</a> o puoi <a href=\"/preventivo/\">calcolare il preventivo</a> in un minuto.")
+            "il canone parte da <strong>€290/mese</strong>, prezzo finale. Trovi il <a href=\"/prezzi/\">listino completo</a> o puoi <a href=\"/preventivo/\">calcolare il preventivo</a> in un minuto.")
     if k == "7":
         c = c.replace("<li>Un <strong>Responsabile Tecnico</strong> con i requisiti previsti per la categoria</li>",
             "<li>Il ruolo di <strong>Responsabile Tecnico</strong>, che in Categoria 6 è assunto dal legale rappresentante dell'impresa</li>")
@@ -70,7 +70,7 @@ NEW = [
 <li>Dimenticare la dichiarazione di compatibilità del nuovo RT, che va allegata alla pratica.</li>
 </ul>
 <h2>Quanto costa sostituire l'RT</h2>
-<p>Con me la pratica di subentro costa €190 una tantum, poi il canone da RT esterno parte da €220 al mese, senza vincoli. Se mancano meno di 10 giorni alla scadenza, la gestione prioritaria costa €290. <a href="/subentro-responsabile-tecnico/">Ecco come funziona il subentro</a>.</p>
+<p>Con me il canone da RT esterno parte da €290 al mese, senza vincoli, e la pratica di subentro ha priorità quando la scadenza è vicina. <a href="/subentro-responsabile-tecnico/">Ecco come funziona il subentro</a>.</p>
 """,
     },
     {
@@ -123,7 +123,7 @@ NEW = [
 <h2>7. "Il RENTRI non funziona, uso il cartaceo"</h2>
 <p>Il FIR cartaceo è ammesso solo nei casi di malfunzionamento previsti dalle regole ministeriali, e va gestito secondo quelle istruzioni. Non è un'alternativa da usare quando è più comodo. <strong>Soluzione:</strong> tieni pronta la procedura di emergenza, ma usala solo quando serve davvero.</p>
 <h2>Non vuoi pensarci tu?</h2>
-<p>Posso configurare RENTRI, deleghe, firma e app per la tua impresa (€250 una tantum), oppure gestire io i tuoi FIR per conto tuo a €12 a formulario. <a href="/fir-digitale-xfir/">Dettagli su FIR digitale e RENTRI</a>.</p>
+<p>Posso configurare RENTRI, deleghe, firma e app per la tua impresa, oppure gestire io i tuoi FIR per conto tuo, a formulario o con un forfait mensile. <a href="/fir-digitale-xfir/">Dettagli su FIR digitale e RENTRI</a>.</p>
 """,
     },
 ]
@@ -142,7 +142,7 @@ def article_page(slug, tag, title, desc, date, content):
   </article>
   <aside class="article-side">
     <div class="side-cta"><h3>Hai un dubbio sulla tua situazione?</h3><p>Scrivimi su WhatsApp: rispondo in giornata, la prima risposta è gratis.</p>{btn_wa("WhatsApp", "Ciao Octavian, ho letto la guida «" + title + "» e ho una domanda: ", "btn-block")}{btn_call(None, "btn-block")}</div>
-    <a class="card" href="/prezzi/"><h3>Prezzi pubblici</h3><p>RT esterno da €220/mese, prezzo finale.</p><span class="more">Vedi il listino →</span></a>
+    <a class="card" href="/prezzi/"><h3>Prezzi pubblici</h3><p>RT esterno da €290/mese, prezzo finale.</p><span class="more">Vedi il listino →</span></a>
   </aside>
 </div></section>
 {cta_band()}'''

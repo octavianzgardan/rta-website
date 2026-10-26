@@ -3,7 +3,7 @@ from layout import *
 
 HOME_FAQ = [
     ("Quanto costa un Responsabile Tecnico esterno?",
-     "Da €220 al mese per una ditta in Categoria 4, classe F, con un mezzo; €290 con 2–3 mezzi; €390 in Categoria 5 o 4+5. Prezzi finali, senza IVA (regime forfettario). Il listino completo, con gli oneri pubblici dell'Albo indicati a parte, è nella <a href=\"/prezzi/\">pagina prezzi</a>."),
+     "Da €290 al mese per una ditta in Categoria 4, classe F, con un mezzo; da €350 con 2–3 mezzi; da €450 in Categoria 5 o 4+5. Prezzi finali, senza IVA (regime forfettario). Il listino completo, con gli oneri pubblici dell'Albo indicati a parte, è nella <a href=\"/prezzi/\">pagina prezzi</a>."),
     ("Il mio RT se ne va: quanto tempo ho?",
      "Devi nominare un nuovo Responsabile Tecnico e comunicarlo all'Albo entro 30 giorni, altrimenti la Sezione regionale può cancellare le categorie interessate. Scrivimi subito: preparo io la pratica di subentro e la dichiarazione di compatibilità."),
     ("Sono titolare: posso fare io da Responsabile Tecnico?",
@@ -27,14 +27,14 @@ def home():
     <p class="lead">Per ditte di trasporto rifiuti, autospurghi, traslochi e sgomberi. Nomina RT, iscrizione e variazioni all'Albo, RENTRI e FIR digitale: me ne occupo io, e quando hai un dubbio mi scrivi su WhatsApp come faresti con un collega.</p>
     <div class="cta-row">{btn_wa()}{btn_call()}</div>
     <ul class="hero-points">
-      <li>Listino pubblico: da €220/mese, oneri dell'Albo scritti a parte</li>
+      <li>Prezzi pubblici: da €290/mese, oneri dell'Albo scritti a parte</li>
       <li>Nessun vincolo: disdetta con 60 giorni di preavviso</li>
       <li>Check-up gratuito della tua posizione all'Albo</li>
     </ul>
   </div>
   <div class="hero-card">
     <div class="hc-photo"><img src="/assets/octavian-zgardan.jpg" alt="Octavian Zgardan, Responsabile Tecnico Ambientale" width="64" height="64"><div><div class="hc-name">Octavian Zgardan</div><div class="hc-role">Responsabile Tecnico Ambientale · Parma e Milano</div></div></div>
-    <div class="hc-price"><span>RT esterno Cat. 4, classe F, 1 mezzo</span><strong>€220</strong> <span>al mese, prezzo finale · senza IVA (forfettario)</span></div>
+    <div class="hc-price"><span>RT esterno Cat. 4, classe F, 1 mezzo</span><strong>€290</strong> <span>al mese, prezzo finale · senza IVA (forfettario)</span></div>
     <a class="btn btn-gold btn-block" href="/preventivo/">Calcola il tuo prezzo in 1 minuto</a>
     <a class="btn btn-ghost btn-block" href="/prezzi/">Vedi il listino completo</a>
     <small>Rispondo personalmente, non un call center.</small>
@@ -89,10 +89,10 @@ def home():
   </div>
   <div class="table-scroll"><table class="price-table">
     <tr><th>Situazione</th><th>Canone</th></tr>
-    <tr><td>Cat. 4 (o 1), classe F, 1 mezzo</td><td class="p">€220/mese</td></tr>
-    <tr><td>Cat. 4 (o 1), classe F, 2–3 mezzi</td><td class="p">€290/mese</td></tr>
-    <tr><td>Cat. 5 oppure 4+5, fino a 2 mezzi</td><td class="p">€390/mese</td></tr>
-    <tr><td>Prima iscrizione all'Albo</td><td class="p">€390 una tantum<br><span class="small muted">+ oneri pubblici</span></td></tr>
+    <tr><td>Cat. 4 (o 1), classe F, 1 mezzo</td><td class="p">da €290/mese</td></tr>
+    <tr><td>Cat. 4 (o 1), classe F, 2–3 mezzi</td><td class="p">da €350/mese</td></tr>
+    <tr><td>Cat. 5 oppure 4+5, fino a 2 mezzi</td><td class="p">da €450/mese</td></tr>
+    <tr><td>Prima iscrizione all'Albo</td><td class="p">da €490 una tantum<br><span class="small muted">+ oneri pubblici</span></td></tr>
     <tr><td>Pagamento annuale anticipato</td><td class="p">10 mesi su 12</td></tr>
   </table></div>
 </div></section>
@@ -172,12 +172,12 @@ def home():
         "description": "Responsabile Tecnico Ambientale esterno per imprese iscritte all'Albo Nazionale Gestori Ambientali (Cat. 1, 4, 5). Iscrizioni, variazioni, RENTRI e FIR digitale.",
         "areaServed": {"@type": "Country", "name": "Italia"},
         "address": {"@type": "PostalAddress", "addressLocality": "Parma", "addressRegion": "PR", "addressCountry": "IT"},
-        "priceRange": "€220-€390/mese",
+        "priceRange": "€290-€450/mese",
         "founder": {"@type": "Person", "name": "Octavian Zgardan", "jobTitle": "Responsabile Tecnico Ambientale"},
         "knowsAbout": ["Albo Nazionale Gestori Ambientali", "RENTRI", "FIR digitale", "Responsabile Tecnico", "Delibera 6/2025"],
     }
     return page("/", "Responsabile Tecnico Ambientale esterno | Albo Gestori Ambientali, RENTRI, FIR digitale",
-                "RT esterno per imprese di trasporto rifiuti, Cat. 1, 4 e 5: nomina, subentro entro 30 giorni, iscrizione Albo, RENTRI e FIR digitale. Da €220/mese, prezzo pubblico. Tel. 347 291 5487.",
+                "RT esterno per imprese di trasporto rifiuti, Cat. 1, 4 e 5: nomina, subentro entro 30 giorni, iscrizione Albo, RENTRI e FIR digitale. Da €290/mese, prezzo pubblico. Tel. 347 291 5487.",
                 b, [schema, faq_schema(HOME_FAQ)])
 
 PREZZI_FAQ = [
@@ -200,14 +200,14 @@ def prezzi():
                   "Ciao Octavian, ho visto i prezzi sul sito. La mia situazione è: ") + f'''
 <section class="s"><div class="wrap">
   <div class="grid g3">
-    <div class="plan"><h3>RT Categoria 4 o 1</h3><div class="for">Classe F · 1 mezzo</div><div class="amount">€220<small>/mese</small></div>
+    <div class="plan"><h3>RT Categoria 4 o 1</h3><div class="for">Classe F · 1 mezzo</div><div class="amount"><small>da </small>€290<small>/mese</small></div>
       <ul><li>Nomina e incarico di RT</li><li>Rinnovi e variazioni mezzi inclusi</li><li>Aggiornamenti normativi</li><li>Supporto in caso di controlli</li><li>Risposta in giornata su WhatsApp</li></ul>
       <a class="btn btn-ghost btn-block" href="/preventivo/">Calcola il preventivo</a></div>
-    <div class="plan hl"><h3>RT Categoria 4 o 1</h3><div class="for">Classe F · 2–3 mezzi</div><div class="amount">€290<small>/mese</small></div>
-      <ul><li>Tutto quello del piano base</li><li>Attestazioni di idoneità per ogni mezzo</li><li>Verifica codici EER per ogni mezzo</li><li>Oltre 3 mezzi: +€40/mese per mezzo</li></ul>
+    <div class="plan hl"><h3>RT Categoria 4 o 1</h3><div class="for">Classe F · 2–3 mezzi</div><div class="amount"><small>da </small>€350<small>/mese</small></div>
+      <ul><li>Tutto quello del piano base</li><li>Attestazioni di idoneità per ogni mezzo</li><li>Verifica codici EER per ogni mezzo</li><li>Oltre 3 mezzi: +€50/mese per mezzo</li></ul>
       <a class="btn btn-gold btn-block" href="/preventivo/">Calcola il preventivo</a></div>
-    <div class="plan"><h3>RT Categoria 5 o 4+5</h3><div class="for">Rifiuti pericolosi · fino a 2 mezzi</div><div class="amount">€390<small>/mese</small></div>
-      <ul><li>Tutto quello dei piani Cat. 4</li><li>Controlli specifici per rifiuti pericolosi</li><li>Verifica GPS sui mezzi (obbligo Cat. 5)</li><li>Oltre 2 mezzi: +€50/mese per mezzo</li></ul>
+    <div class="plan"><h3>RT Categoria 5 o 4+5</h3><div class="for">Rifiuti pericolosi · fino a 2 mezzi</div><div class="amount"><small>da </small>€450<small>/mese</small></div>
+      <ul><li>Tutto quello dei piani Cat. 4</li><li>Controlli specifici per rifiuti pericolosi</li><li>Verifica GPS sui mezzi (obbligo Cat. 5)</li><li>Oltre 2 mezzi: +€60/mese per mezzo</li></ul>
       <a class="btn btn-ghost btn-block" href="/preventivo/">Calcola il preventivo</a></div>
   </div>
   <div class="note green mt-2"><strong>Pagamento annuale anticipato: 10 mensilità invece di 12.</strong> Nessun vincolo di durata: disdetta con 60 giorni di preavviso. Per classi superiori alla F il canone cresce in proporzione alle tonnellate: lo vedi subito nel <a href="/preventivo/">preventivo online</a>.</div>
@@ -218,11 +218,10 @@ def prezzi():
   <h2 class="t">Iscrizioni, subentri e FIR.</h2>
   <div class="table-scroll"><table class="price-table">
     <tr><th>Servizio</th><th>Onorario</th><th>Note</th></tr>
-    <tr><td>Prima iscrizione all'Albo (Cat. 4 o 5)</td><td class="p">€390</td><td>Oneri pubblici a parte (vedi sotto). Il canone RT parte dall'iscrizione.</td></tr>
-    <tr><td>Subentro come nuovo RT (impresa già iscritta)</td><td class="p">€190</td><td>Pratica di variazione, intercalare e dichiarazione di compatibilità. Poi parte il canone RT.</td></tr>
-    <tr><td>Subentro urgente (meno di 10 giorni alla scadenza)</td><td class="p">€290</td><td>Priorità assoluta sulla pratica.</td></tr>
-    <tr><td>Configurazione RENTRI e FIR digitale</td><td class="p">€250</td><td>Iscrizione, deleghe, certificato di firma, app sul telefono, primo FIR di prova insieme.</td></tr>
-    <tr><td>Gestione FIR per tuo conto</td><td class="p">€12 a FIR</td><td>Oppure forfait €80/mese fino a 15 FIR. Emissione, firma, trasmissione e registro.</td></tr>
+    <tr><td>Prima iscrizione all'Albo (Cat. 4 o 5)</td><td class="p">da €490</td><td>Oneri pubblici a parte (vedi sotto). Il canone RT parte dall'iscrizione.</td></tr>
+    <tr><td>Subentro come nuovo RT (impresa già iscritta)</td><td class="p">su preventivo</td><td>Pratica di variazione, intercalare e dichiarazione di compatibilità. Priorità se la scadenza è vicina.</td></tr>
+    <tr><td>Configurazione RENTRI e FIR digitale</td><td class="p">su preventivo</td><td>Iscrizione, deleghe, certificato di firma, app sul telefono, primo FIR di prova insieme.</td></tr>
+    <tr><td>Gestione FIR per tuo conto</td><td class="p">su preventivo</td><td>A formulario o forfait mensile, in base a quanti FIR fai. Emissione, firma, trasmissione e registro.</td></tr>
     <tr><td>Iscrizione Categoria 6 (transfrontaliero)</td><td class="p">su preventivo</td><td>Dipende da flussi, Paesi e flotta.</td></tr>
     <tr><td>MUD, convenzioni con impianti, pratiche straordinarie</td><td class="p">su preventivo</td><td>Prezzo scritto prima di iniziare.</td></tr>
   </table></div>
@@ -241,8 +240,8 @@ def prezzi():
     <div class="row"><span>Diritto annuale Albo (Cat. 4, classe F)</span><span>fino a €150</span></div>
     <div class="row"><span>RENTRI: segreteria + contributo primo anno</span><span>€110</span></div>
     <div class="row tot"><span>Oneri pubblici, totale indicativo</span><span>circa €310–530</span></div>
-    <div class="row"><span>Onorario prima iscrizione</span><span>€390</span></div>
-    <div class="row"><span>Canone RT mensile</span><span>€220</span></div>
+    <div class="row"><span>Onorario prima iscrizione</span><span>€490</span></div>
+    <div class="row"><span>Canone RT mensile</span><span>€290</span></div>
   </div>
 </div></section>
 
@@ -252,8 +251,8 @@ def prezzi():
 </div></section>
 {cta_band("Vuoi il prezzo esatto per la tua azienda?", "Mandami categoria, numero di mezzi e provincia su WhatsApp: ti rispondo con il prezzo scritto, oneri pubblici compresi.", "Ciao Octavian, vorrei un preventivo. Categoria: , mezzi: , provincia: ")}
 '''
-    return page("/prezzi/", "Prezzi Responsabile Tecnico esterno: da €220/mese | Listino pubblico",
-                "Quanto costa un RT esterno per l'Albo Gestori Ambientali: €220/mese Cat. 4 1 mezzo, €290 con 2–3 mezzi, €390 Cat. 5. Iscrizione €390 + oneri pubblici voce per voce.",
+    return page("/prezzi/", "Prezzi Responsabile Tecnico esterno: da €290/mese | Prezzi pubblici",
+                "Quanto costa un RT esterno per l'Albo Gestori Ambientali: da €290/mese Cat. 4 con 1 mezzo, da €350 con 2–3 mezzi, da €450 Cat. 5. Iscrizione da €490 + oneri pubblici voce per voce.",
                 b, [breadcrumb_schema(items), faq_schema(PREZZI_FAQ)])
 
 RT_FAQ = [
@@ -270,7 +269,7 @@ RT_FAQ = [
 def rt_esterno():
     items = [("Home", "/"), ("Responsabile Tecnico esterno", "/responsabile-tecnico-esterno/")]
     b = page_hero(items, "Responsabile Tecnico esterno per l'Albo Gestori Ambientali",
-                  "Sono il Responsabile Tecnico della tua impresa per le categorie 1, 4 e 5. Tu lavori, io tengo in regola iscrizione, mezzi, codici EER e scadenze. Da €220 al mese, senza vincoli.") + f'''
+                  "Sono il Responsabile Tecnico della tua impresa per le categorie 1, 4 e 5. Tu lavori, io tengo in regola iscrizione, mezzi, codici EER e scadenze. Da €290 al mese, senza vincoli.") + f'''
 <section class="s"><div class="wrap split">
   <div>
     <h2 class="t">Cosa faccio come tuo RT</h2>
@@ -290,7 +289,7 @@ def rt_esterno():
       <h3>Per chi è</h3>
       <p>Piccole imprese e ditte individuali di trasporto rifiuti in conto terzi: <a href="/settori/autospurghi/">autospurghi</a>, <a href="/settori/traslochi-sgomberi/">traslochi e sgomberi</a>, <a href="/settori/demolizioni-macerie/">macerie e demolizioni</a>, <a href="/settori/cantieri-stradali/">cantieri stradali</a>, raccolta rifiuti, RAEE professionali.</p>
       <h3 class="mt-2">Quanto costa</h3>
-      <p>€220/mese in Cat. 4 classe F con un mezzo, €290 con 2–3 mezzi, €390 in Cat. 5. Prezzi finali, senza IVA. <a href="/prezzi/">Listino completo</a>.</p>
+      <p>Da €290/mese in Cat. 4 classe F con un mezzo, da €350 con 2–3 mezzi, da €450 in Cat. 5. Prezzi finali, senza IVA. <a href="/prezzi/">Listino completo</a>.</p>
       <div class="cta-row mt-2"><a class="btn btn-gold" href="/preventivo/">Calcola il tuo prezzo</a></div>
     </div>
     <div class="note mt-1"><strong>Il tuo RT attuale se ne va?</strong> Hai 30 giorni per sostituirlo. <a href="/subentro-responsabile-tecnico/">Ecco come funziona il subentro</a>.</div>
@@ -305,9 +304,9 @@ def rt_esterno():
 '''
     svc = {"@context": "https://schema.org", "@type": "Service", "name": "Responsabile Tecnico esterno Albo Gestori Ambientali",
            "provider": {"@type": "Person", "name": "Octavian Zgardan"}, "areaServed": "IT",
-           "offers": {"@type": "Offer", "price": "220", "priceCurrency": "EUR", "description": "Canone mensile Cat. 4, classe F, 1 mezzo"}}
-    return page("/responsabile-tecnico-esterno/", "Responsabile Tecnico esterno Albo Gestori Ambientali | Da €220/mese",
-                "RT esterno per imprese iscritte all'Albo Gestori Ambientali in Cat. 1, 4 e 5: incarico effettivo, rinnovi e variazioni inclusi, supporto nei controlli. Da €220/mese, senza vincoli.",
+           "offers": {"@type": "Offer", "price": "290", "priceCurrency": "EUR", "description": "Canone mensile Cat. 4, classe F, 1 mezzo"}}
+    return page("/responsabile-tecnico-esterno/", "Responsabile Tecnico esterno Albo Gestori Ambientali | Da €290/mese",
+                "RT esterno per imprese iscritte all'Albo Gestori Ambientali in Cat. 1, 4 e 5: incarico effettivo, rinnovi e variazioni inclusi, supporto nei controlli. Da €290/mese, senza vincoli.",
                 b, [breadcrumb_schema(items), faq_schema(RT_FAQ), svc])
 
 SUB_FAQ = [
@@ -331,12 +330,12 @@ def subentro():
       <div class="step"><div><h3>Oggi: mi scrivi</h3><p>Mi dici ragione sociale, categorie e data in cui il vecchio RT ha cessato. Controllo subito la tua posizione sull'Albo.</p></div></div>
       <div class="step"><div><h3>Entro 48 ore: documenti pronti</h3><p>Ti mando l'intercalare RT da firmare. Preparo la dichiarazione di compatibilità dell'incarico.</p></div></div>
       <div class="step"><div><h3>Presento la pratica</h3><p>Presento la variazione all'Albo e ti avviso quando la Sezione la approva.</p></div></div>
-      <div class="step"><div><h3>Da lì sono il tuo RT</h3><p>Con canone mensile da €220, senza vincoli.</p></div></div>
+      <div class="step"><div><h3>Da lì sono il tuo RT</h3><p>Con canone mensile da €290, senza vincoli.</p></div></div>
     </div>
   </div>
   <div>
     <div class="card urgent"><span class="badge">Attenzione</span><h3>Perché non aspettare</h3><p>Se i 30 giorni passano senza un nuovo RT, rischi la cancellazione delle categorie interessate. A quel punto per tornare a trasportare quei rifiuti serve una nuova iscrizione, con nuovi costi e nuovi tempi.</p></div>
-    <div class="card mt-1"><h3>Quanto costa</h3><p>Pratica di subentro €190 una tantum, poi canone RT da €220/mese senza vincoli. Se mancano meno di 10 giorni alla scadenza: €290 con priorità assoluta.</p></div>
+    <div class="card mt-1"><h3>Quanto costa</h3><p>Pratica di subentro su preventivo, poi canone RT da €290/mese senza vincoli. Se la scadenza è vicina, la pratica ha priorità assoluta.</p></div>
   </div>
 </div></section>
 <section class="s white"><div class="wrap narrow">{faq_html(SUB_FAQ)}
@@ -359,7 +358,7 @@ ISCR_FAQ = [
 def iscrizione():
     items = [("Home", "/"), ("Iscrizione all'Albo Gestori Ambientali", "/iscrizione-albo-gestori-ambientali/")]
     b = page_hero(items, "Iscrizione all'Albo Gestori Ambientali in Categoria 4 e 5",
-                  "Preparo e presento io la domanda: categoria e classe giuste, mezzi, codici EER scelti per non dover fare variazioni dopo un mese, e l'RT già incluso. Onorario €390, oneri pubblici indicati voce per voce.") + f'''
+                  "Preparo e presento io la domanda: categoria e classe giuste, mezzi, codici EER scelti per non dover fare variazioni dopo un mese, e l'RT già incluso. Onorario da €490, oneri pubblici indicati voce per voce.") + f'''
 <section class="s"><div class="wrap split">
   <div>
     <h2 class="t">Cosa comprende</h2>
@@ -374,17 +373,17 @@ def iscrizione():
     <p class="mt-2">Guida passo passo: <a href="/guide/iscrizione-albo-gestori-ambientali-guida/">come iscriversi all'Albo</a>.</p>
   </div>
   <div class="example">
-    <div class="row"><span>Onorario pratica di iscrizione</span><span>€390</span></div>
+    <div class="row"><span>Onorario pratica di iscrizione</span><span>da €490</span></div>
     <div class="row"><span>Oneri pubblici (Cat. 4, classe F)</span><span>circa €310–530</span></div>
-    <div class="row"><span>Canone RT dopo l'iscrizione</span><span>da €220/mese</span></div>
+    <div class="row"><span>Canone RT dopo l'iscrizione</span><span>da €290/mese</span></div>
     <p class="small muted mt-1">Gli oneri pubblici li paga l'impresa, con versamenti a suo nome. <a href="/prezzi/">Dettaglio voce per voce</a>.</p>
   </div>
 </div></section>
 <section class="s white"><div class="wrap narrow">{faq_html(ISCR_FAQ)}</div></section>
 {cta_band("Stai aprendo un'attività di trasporto rifiuti?", "Dimmi cosa trasporterai e con quanti mezzi: ti dico categoria, classe e costo totale prima di iniziare.", "Ciao Octavian, devo iscrivermi all'Albo Gestori Ambientali. Trasporterò: , con mezzi n.: ")}
 '''
-    return page("/iscrizione-albo-gestori-ambientali/", "Iscrizione Albo Gestori Ambientali Cat. 4 e 5 | Onorario €390",
-                "Iscrizione all'Albo Nazionale Gestori Ambientali in Categoria 4 o 5: categoria, classe, mezzi e codici EER corretti, RT incluso. Onorario €390 + oneri pubblici voce per voce.",
+    return page("/iscrizione-albo-gestori-ambientali/", "Iscrizione Albo Gestori Ambientali Cat. 4 e 5 | Onorario da €490",
+                "Iscrizione all'Albo Nazionale Gestori Ambientali in Categoria 4 o 5: categoria, classe, mezzi e codici EER corretti, RT incluso. Onorario da €490 + oneri pubblici voce per voce.",
                 b, [breadcrumb_schema(items), faq_schema(ISCR_FAQ)])
 
 FIR_FAQ = [
@@ -401,15 +400,15 @@ FIR_FAQ = [
 def fir():
     items = [("Home", "/"), ("FIR digitale e RENTRI", "/fir-digitale-xfir/")]
     b = page_hero(items, "FIR digitale (xFIR) e RENTRI per trasportatori",
-                  "Dal 15 settembre 2026 il formulario è solo digitale. Se ogni FIR ti fa perdere mezz'ora, o non riesci proprio a emetterlo, te lo configuro io. Oppure lo gestisco io per conto tuo, a €12 a formulario.",
+                  "Dal 15 settembre 2026 il formulario è solo digitale. Se ogni FIR ti fa perdere mezz'ora, o non riesci proprio a emetterlo, te lo configuro io. Oppure lo gestisco io per conto tuo, a formulario o con un forfait mensile.",
                   True, "Ciao Octavian, ho un problema con il FIR digitale / RENTRI: ") + f'''
 <section class="s"><div class="wrap">
   <div class="grid g2">
-    <div class="plan"><h3>Configurazione RENTRI e FIR</h3><div class="for">Una tantum</div><div class="amount">€250</div>
+    <div class="plan"><h3>Configurazione RENTRI e FIR</h3><div class="for">Una tantum</div><div class="amount"><small>su preventivo</small></div>
       <ul><li>Iscrizione RENTRI o verifica di quella esistente</li><li>Attività corretta (solo trasporto, produzione…)</li><li>Deleghe e persone abilitate</li><li>Certificato di firma RENTRI</li><li>App sul telefono degli autisti</li><li>Primo FIR emesso insieme, dall'inizio alla fine</li></ul>
       {btn_wa("Configuriamolo", "Ciao Octavian, vorrei la configurazione RENTRI e FIR digitale. La ditta è: ", "btn-block")}</div>
-    <div class="plan hl"><h3>Gestione FIR per tuo conto</h3><div class="for">Mi mandi i dati, io emetto</div><div class="amount">€12<small>/FIR</small></div>
-      <ul><li>Emissione, firma e trasmissione del FIR digitale</li><li>Registro di carico e scarico aggiornato e trasmesso</li><li>Controllo codici EER e destinatari autorizzati</li><li>Forfait €80/mese fino a 15 FIR</li></ul>
+    <div class="plan hl"><h3>Gestione FIR per tuo conto</h3><div class="for">Mi mandi i dati, io emetto</div><div class="amount"><small>su preventivo</small></div>
+      <ul><li>Emissione, firma e trasmissione del FIR digitale</li><li>Registro di carico e scarico aggiornato e trasmesso</li><li>Controllo codici EER e destinatari autorizzati</li><li>A formulario o forfait mensile</li></ul>
       {btn_wa("Gestiscili tu", "Ciao Octavian, vorrei che gestissi tu i nostri FIR digitali. Ne facciamo circa  al mese.", "btn-block")}</div>
   </div>
 </div></section>
@@ -431,7 +430,7 @@ def fir():
 {cta_band("Bloccato con un FIR adesso?", "Mandami uno screenshot dell'errore su WhatsApp: ti dico cosa fare.", "Ciao Octavian, ho questo errore con il FIR digitale: ")}
 '''
     return page("/fir-digitale-xfir/", "FIR digitale (xFIR) e RENTRI per trasportatori | Configurazione e gestione",
-                "Dal 15 settembre 2026 il FIR è solo digitale. Configurazione RENTRI per trasportatori a €250, oppure gestione dei FIR per tuo conto a €12 a formulario. Risposta in giornata.",
+                "Dal 15 settembre 2026 il FIR è solo digitale. Configurazione RENTRI per trasportatori, oppure gestione dei FIR per tuo conto. Prezzo su misura in base ai FIR che fai. Risposta in giornata.",
                 b, [breadcrumb_schema(items), faq_schema(FIR_FAQ)])
 
 def variazioni():
@@ -526,20 +525,20 @@ def settore_autospurghi():
     </ul>
   </div>
   <div class="card"><h3>Esperienza diretta</h3><p>Seguo autospurghi in Emilia-Romagna: iscrizione, aggiunta di codici EER, documentazione per gli impianti di trattamento e passaggio al FIR digitale. Conosco i problemi concreti del settore.</p>
-    <h3 class="mt-2">Prezzo</h3><p>€220/mese con una autobotte in Cat. 4, classe F. <a href="/prezzi/">Listino</a>.</p></div>
+    <h3 class="mt-2">Prezzo</h3><p>Da €290/mese con una autobotte in Cat. 4, classe F. <a href="/prezzi/">Listino</a>.</p></div>
 </div></section>
 <section class="s white"><div class="wrap narrow">{faq_html(faqs)}</div></section>
 {cta_band("Hai un autospurgo?", "Scrivimi: ti dico in 10 minuti se la tua iscrizione è a posto.", "Ciao Octavian, ho un autospurgo. Vorrei un check-up della mia iscrizione all'Albo. ")}
 '''
     return page("/settori/autospurghi/", "Responsabile Tecnico per autospurghi | Albo Cat. 4, EER 20 03 04 e 20 03 06",
-                "RT esterno per autospurghi: iscrizione Albo in Cat. 4, codici EER 20 03 04 e 20 03 06, convenzioni con impianti, FIR digitale per privati e condomini. Da €220/mese.",
+                "RT esterno per autospurghi: iscrizione Albo in Cat. 4, codici EER 20 03 04 e 20 03 06, convenzioni con impianti, FIR digitale per privati e condomini. Da €290/mese.",
                 b, [breadcrumb_schema(items), faq_schema(faqs)])
 
 def settore_traslochi():
     items = [("Home", "/"), ("Settori", "/settori/traslochi-sgomberi/"), ("Traslochi e sgomberi", "/settori/traslochi-sgomberi/")]
     faqs = [("Faccio traslochi: mi serve l'Albo?", "Se negli sgomberi porti via mobili, materassi, ingombranti o altri rifiuti dei clienti, stai trasportando rifiuti per conto di terzi: serve l'iscrizione in Categoria 4 e un Responsabile Tecnico."),
             ("Basta la Categoria 2-bis?", "No, la 2-bis copre solo il trasporto dei rifiuti che produci tu. I rifiuti dei tuoi clienti richiedono la Categoria 4."),
-            ("Con due furgoni quanto spendo?", "€290/mese di canone RT, più la pratica di prima iscrizione se non sei ancora iscritto (€390 + oneri pubblici).")]
+            ("Con due furgoni quanto spendo?", "Da €350/mese di canone RT, più la pratica di prima iscrizione se non sei ancora iscritto (da €490 + oneri pubblici).")]
     b = page_hero(items, "Albo Gestori Ambientali per traslochi e sgomberi",
                   "Se durante uno sgombero porti via mobili e ingombranti del cliente, stai trasportando rifiuti per conto terzi. Ti iscrivo in Categoria 4 e divento il tuo RT, con furgoni e codici giusti.",
                   True, "Ciao Octavian, faccio traslochi e sgomberi e mi serve l'iscrizione all'Albo. ") + f'''
@@ -552,7 +551,7 @@ def settore_traslochi():
 {cta_band()}
 '''
     return page("/settori/traslochi-sgomberi/", "Iscrizione Albo Gestori Ambientali per traslochi e sgomberi | Cat. 4",
-                "Traslochi e sgomberi con smaltimento di mobili e ingombranti: serve l'Albo in Categoria 4 con Responsabile Tecnico. Iscrizione €390 + oneri, RT da €220/mese.",
+                "Traslochi e sgomberi con smaltimento di mobili e ingombranti: serve l'Albo in Categoria 4 con Responsabile Tecnico. Iscrizione da €490 + oneri, RT da €290/mese.",
                 b, [breadcrumb_schema(items), faq_schema(faqs)])
 
 def chi_sono():
@@ -740,8 +739,8 @@ def area_clienti():
       <a class="btn btn-ghost btn-sm mt-1" target="_blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSe-eWryIStSMhcgq7uakQCWG8uajYSXn-opAq1uAqTnjRRF3g/viewform">Carica i documenti →</a></div>
   </div>
   <h2 class="t mt-3" style="font-size:1.3rem">Servizi aggiuntivi</h2>
-  <div class="grid g2"><div class="card"><h3>Gestione FIR per tuo conto</h3><p>Emissione, firma e trasmissione dei FIR digitali, registro aggiornato. €12 a FIR o forfait €80/mese fino a 15 FIR.</p></div>
-  <div class="card"><h3>Configurazione RENTRI</h3><p>Deleghe, firma, app sul telefono e primo FIR insieme. €250 una tantum.</p></div></div>
+  <div class="grid g2"><div class="card"><h3>Gestione FIR per tuo conto</h3><p>Emissione, firma e trasmissione dei FIR digitali, registro aggiornato. A formulario o forfait mensile: chiedimi il prezzo.</p></div>
+  <div class="card"><h3>Configurazione RENTRI</h3><p>Deleghe, firma, app sul telefono e primo FIR insieme. Prezzo su richiesta.</p></div></div>
 </div>
 </div></section>'''.replace("WA_BTN", btn_wa()).replace("TEL_BTN", btn_call())
     scripts = '''<script>
@@ -816,7 +815,7 @@ def settore_demolizioni():
     <div class="card urgent"><span class="badge">Categoria 4 o 5 + RT</span><h3>Trasporti macerie per conto di altri</h3>
       <p>Autotrasportatori con ribaltabili, scarrabili o noleggio cassoni che ritirano dai cantieri dei clienti.</p>
       <ul class="check-list mt-1"><li>Iscrizione in Categoria 4 (5 per i pericolosi)</li><li>Responsabile Tecnico obbligatorio</li><li>Attestazione di idoneità per ogni mezzo e cassone</li><li>FIR digitale per ogni trasporto</li></ul>
-      <p class="mt-1">Qui divento il tuo RT: da €290/mese con 2–3 mezzi.</p></div>
+      <p class="mt-1">Qui divento il tuo RT: da €350/mese con 2–3 mezzi.</p></div>
   </div>
 </div></section>
 <section class="s white"><div class="wrap split">
@@ -868,7 +867,7 @@ def settore_strade():
   </div>
   <div>
     <h2 class="t">Per il trasportatore che lavora per lei</h2>
-    <ul class="check-list"><li>Iscrizione in Categoria 4 con i codici giusti per i cantieri stradali</li><li>Responsabile Tecnico esterno da €220/mese</li><li>Mezzi e cassoni aggiornati sull'Albo</li><li>FIR digitale in cantiere, anche dal telefono dell'autista</li></ul>
+    <ul class="check-list"><li>Iscrizione in Categoria 4 con i codici giusti per i cantieri stradali</li><li>Responsabile Tecnico esterno da €290/mese</li><li>Mezzi e cassoni aggiornati sull'Albo</li><li>FIR digitale in cantiere, anche dal telefono dell'autista</li></ul>
   </div>
 </div></section>
 <section class="s"><div class="wrap narrow"><h2 class="t">Domande frequenti</h2>{faq_html(STRADE_FAQ)}</div></section>

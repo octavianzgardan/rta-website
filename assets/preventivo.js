@@ -3,16 +3,16 @@
 var EMAILJS_SERVICE='service_39l9mjp',EMAILJS_TEMPLATE='template_qez2wrs',EMAILJS_KEY='ADqyZw_RXFGZhS5OV';
 if(window.emailjs)emailjs.init(EMAILJS_KEY);
 
-var ONORARIO_ISCRIZIONE=390; // prima iscrizione all'Albo, oneri pubblici esclusi
+var ONORARIO_ISCRIZIONE=490; // prima iscrizione all'Albo, oneri pubblici esclusi
 var ans={};
 
 function calcPrice(){
   if(ans.cat==='6')return null;
   var m=parseInt(ans.mezzi)||1,base;
   if(ans.cat==='1'||ans.cat==='4'){
-    base = m<=1 ? 220 : (m<=3 ? 290 : 290+40*(m-3));
+    base = m<=1 ? 290 : (m<=3 ? 350 : 350+50*(m-3));
   }else{ // Cat. 5 oppure 4+5
-    base = m<=2 ? 390 : 390+50*(m-2);
+    base = m<=2 ? 450 : 450+60*(m-2);
   }
   var t=parseInt(ans.tonn)||0;
   if(t>=200000)base*=2;else if(t>=100000)base*=1.7;else if(t>=35000)base*=1.45;else if(t>=10000)base*=1.25;else if(t>=4000)base*=1.1;
