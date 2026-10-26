@@ -1,182 +1,9 @@
 # Pagine principali del sito
 from layout import *
 
-HOME_FAQ = [
-    ("Quanto costa un Responsabile Tecnico esterno?",
-     "Dipende da categoria, numero di mezzi, classe e servizi che ti servono. Mi chiami o mi scrivi, in 10 minuti capisco la tua situazione e ti mando un preventivo scritto, gratis e senza impegno. Gli oneri pubblici dell'Albo li indico sempre a parte, voce per voce."),
-    ("Il mio RT se ne va: quanto tempo ho?",
-     "Devi nominare un nuovo Responsabile Tecnico e comunicarlo all'Albo entro 30 giorni, altrimenti la Sezione regionale può cancellare le categorie interessate. Scrivimi subito: preparo io la pratica di subentro e la dichiarazione di compatibilità."),
-    ("Sono titolare: posso fare io da Responsabile Tecnico?",
-     "Dal 2 gennaio 2026, con la Delibera n. 6/2025 dell'Albo, il legale rappresentante può essere dispensato dalla verifica solo se ha tre anni di esperienza e un diploma di scuola superiore, e comunque può fare l'RT solo per la propria impresa. Se non rientri nei requisiti, ti serve un RT esterno."),
-    ("Un RT esterno a distanza è valido?",
-     "Sì, se l'incarico è effettivo. Lavoro in digitale per tutto ciò che è documentale (Albo, RENTRI, FIR), ma faccio i controlli che la legge chiede all'RT: idoneità dei mezzi, codici EER autorizzati, verifica di impianti e destinatari, procedure in caso di emergenza. Tutto resta tracciato in un registro delle verifiche."),
-    ("Mi aiuti anche se ho problemi con il FIR digitale?",
-     "Sì. Dal 15 settembre 2026 il FIR cartaceo non vale più. Configuro RENTRI, deleghe, firma e app, e se vuoi gestisco io l'emissione dei FIR per tuo conto. Vedi <a href=\"/fir-digitale-xfir/\">FIR digitale e RENTRI</a>."),
-    ("Lavori solo a Parma e Milano?",
-     "Lavoro in tutta Italia: le pratiche all'Albo e al RENTRI sono telematiche. In Emilia-Romagna e Lombardia posso anche venire in sede quando serve."),
-    ("C'è un vincolo di durata?",
-     "No. Puoi disdire con 60 giorni di preavviso, il tempo necessario per nominare un altro RT senza rischi per la tua iscrizione."),
-]
-
-def home():
-    b = f'''
-<section class="hero"><div class="wrap">
-  <div>
-    <span class="kicker"><span class="dot"></span>Iscritto all'Albo Nazionale Gestori Ambientali · Cat. 1, 4, 5</span>
-    <h1>Il tuo Responsabile Tecnico esterno. <em>Risposta in giornata, anche su WhatsApp.</em></h1>
-    <p class="lead">Per ditte di trasporto rifiuti, autospurghi, traslochi e sgomberi. Nomina RT, iscrizione e variazioni all'Albo, RENTRI e FIR digitale: me ne occupo io, e quando hai un dubbio mi scrivi su WhatsApp come faresti con un collega.</p>
-    <div class="cta-row">{btn_wa()}{btn_call()}</div>
-    <ul class="hero-points">
-      <li>Preventivo scritto e gratuito, oneri dell'Albo indicati a parte</li>
-      <li>Nessun vincolo: disdetta con 60 giorni di preavviso</li>
-      <li>Check-up gratuito della tua posizione all'Albo</li>
-    </ul>
-  </div>
-  <div class="hero-card">
-    <div class="hc-photo"><img src="/assets/octavian-zgardan.jpg" alt="Octavian Zgardan, Responsabile Tecnico Ambientale" width="64" height="64"><div><div class="hc-name">Octavian Zgardan</div><div class="hc-role">Responsabile Tecnico Ambientale · Parma e Milano</div></div></div>
-    <div class="hc-price"><span>Preventivo su misura</span><strong style="font-size:1.4rem">Gratis, in giornata</strong> <span>Mi chiami, mi spieghi la situazione, ti mando il preventivo scritto.</span></div>
-    <a class="btn btn-call btn-block" href="tel:{TEL}">{ICON_TEL}Chiama {PHONE}</a>
-    <a class="btn btn-wa btn-block" href="{wa()}" target="_blank" rel="noopener">{ICON_WA}Scrivimi su WhatsApp</a>
-    <small>Rispondo personalmente, non un call center.</small>
-  </div>
-</div></section>
-
-<div class="trust"><div class="wrap">
-  <span>Iscritto all'Albo Nazionale Gestori Ambientali dal 2024</span><span>Categorie 1, 4 e 5 · classe F</span><span>Pratiche telematiche in tutta Italia</span><span>In sede in Emilia-Romagna e Lombardia</span>
-</div></div>
-
-<section class="s"><div class="wrap">
-  <div class="tag">Quando ti serve</div>
-  <h2 class="t">Di solito mi chiamano per uno di questi quattro motivi.</h2>
-  <p class="sub">Se ti riconosci in uno di questi casi, scrivimi oggi: alcuni hanno una scadenza precisa.</p>
-  <div class="grid g4">
-    <a class="card urgent" href="/subentro-responsabile-tecnico/"><span class="badge">Scadenza 30 giorni</span><h3>Il tuo RT ha lasciato l'incarico</h3><p>Pensione, dimissioni, verifica non superata. Hai 30 giorni per nominarne un altro, poi rischi la cancellazione delle categorie.</p><span class="more">Subentro urgente →</span></a>
-    <a class="card urgent" href="/fir-digitale-xfir/"><span class="badge">Obbligo dal 15/09/2026</span><h3>Il FIR digitale ti blocca</h3><p>Iscrizione RENTRI, deleghe, firma, app sul telefono, registro da trasmettere. Lo sistemo io, oppure gestisco io i tuoi FIR.</p><span class="more">FIR digitale e RENTRI →</span></a>
-    <a class="card" href="/iscrizione-albo-gestori-ambientali/"><span class="badge">Nuova attività</span><h3>Devi iscriverti all'Albo</h3><p>Categoria 4 o 5, classe, mezzi, codici EER, capacità finanziaria. Preparo e presento io la pratica, con l'RT già incluso.</p><span class="more">Iscrizione all'Albo →</span></a>
-    <a class="card" href="/guide/delibera-6-2025-legale-rappresentante-rt/"><span class="badge">Delibera 6/2025</span><h3>Non puoi più fare da RT</h3><p>Dal 2026 il titolare senza diploma o senza tre anni di esperienza non può più autonominarsi. Serve un RT esterno.</p><span class="more">Leggi la guida →</span></a>
-  </div>
-</div></section>
-
-<section class="s white"><div class="wrap">
-  <div class="tag">Servizi</div>
-  <h2 class="t">Tutto quello che riguarda l'Albo e il RENTRI, in un solo referente.</h2>
-  <div class="grid g3 mt-2">
-    <a class="card" href="/responsabile-tecnico-esterno/"><div class="ico">🛡️</div><h3>Responsabile Tecnico esterno</h3><p>Incarico RT per Cat. 1, 4 e 5, con rinnovi, variazioni e supporto nei controlli inclusi nel canone.</p><span class="more">Dettagli →</span></a>
-    <a class="card" href="/fir-digitale-xfir/"><div class="ico">📲</div><h3>FIR digitale e RENTRI</h3><p>Configurazione completa e, se vuoi, emissione dei FIR per tuo conto. Per trasportatori e autospurghi.</p><span class="more">Dettagli →</span></a>
-    <a class="card" href="/iscrizione-albo-gestori-ambientali/"><div class="ico">📝</div><h3>Iscrizione all'Albo</h3><p>Prima iscrizione in Cat. 4 o 5, con onorario fisso e oneri pubblici indicati voce per voce.</p><span class="more">Dettagli →</span></a>
-    <a class="card" href="/variazioni-albo/"><div class="ico">🚛</div><h3>Variazioni mezzi e codici EER</h3><p>Nuovo mezzo, nuovi codici, cambio classe: entro i 30 giorni previsti, senza sospensioni.</p><span class="more">Dettagli →</span></a>
-    <a class="card" href="/categoria-6-trasporto-transfrontaliero/"><div class="ico">🌍</div><h3>Categoria 6</h3><p>Pratica di iscrizione per i trasporti transfrontalieri e supporto sul Regolamento europeo.</p><span class="more">Dettagli →</span></a>
-    <a class="card" href="/trasporto-raee/"><div class="ico">🔌</div><h3>Trasporto RAEE</h3><p>Ti dico se ti serve l'Albo o basta il portale RAEE. Se serve, seguo io tutta la pratica.</p><span class="more">Dettagli →</span></a>
-  </div>
-</div></section>
-
-<section class="s tight"><div class="wrap">
-  <div class="tag">Per chi lavoro</div>
-  <h2 class="t">Settori che seguo ogni giorno.</h2>
-  <div class="grid g4 mt-2">
-    <a class="card" href="/settori/autospurghi/"><h3>Autospurghi</h3><p>Fosse settiche, fognature, impianti di scarico.</p><span class="more">Vedi →</span></a>
-    <a class="card" href="/settori/demolizioni-macerie/"><h3>Demolizioni e macerie</h3><p>Ribaltabili, scarrabili, cassoni dai cantieri.</p><span class="more">Vedi →</span></a>
-    <a class="card" href="/settori/cantieri-stradali/"><h3>Cantieri stradali</h3><p>Fresato d'asfalto, terre e rocce, macerie.</p><span class="more">Vedi →</span></a>
-    <a class="card" href="/settori/traslochi-sgomberi/"><h3>Traslochi e sgomberi</h3><p>Mobili e ingombranti dei clienti.</p><span class="more">Vedi →</span></a>
-  </div>
-</div></section>
-<section class="s"><div class="wrap split">
-  <div>
-    <div class="tag">Preventivo</div>
-    <h2 class="t">Un prezzo su misura, scritto, in giornata.</h2>
-    <p class="sub">Ogni impresa è diversa: categoria, mezzi, tonnellate, quanti FIR fai, se sei già iscritto. Mi chiami, in 10 minuti capisco la situazione e ti mando un preventivo scritto. Gratis, senza impegno.</p>
-    <div class="cta-row">{btn_call()}{btn_wa()}</div>
-  </div>
-  <div class="card"><h3>Cosa determina il preventivo</h3><ul class="check-list mt-1">
-    <li>Categoria: 1, 4, 5 o 4+5</li><li>Numero di mezzi e classe di iscrizione</li><li>Se serve la prima iscrizione o solo l'incarico di RT</li><li>Servizi extra: gestione FIR, MUD, pratiche straordinarie</li></ul>
-    <p class="mt-1 small muted">Gli oneri pubblici dell'Albo e del RENTRI sono sempre scritti a parte, perché non vanno a me.</p></div>
-</div></section>
-
-<section class="s white"><div class="wrap split">
-  <div>
-    <div class="tag">Come lavoro</div>
-    <h2 class="t">Un incarico vero, non una firma su un modulo.</h2>
-    <p class="sub">L'Albo chiede che l'incarico di RT sia effettivo e continuativo. Un RT "di comodo" mette a rischio la tua iscrizione. Per questo ogni controllo che faccio resta documentato.</p>
-    <ul class="check-list">
-      <li>Attestazione di idoneità dei mezzi e verifica dei codici EER autorizzati</li>
-      <li>Controllo delle iscrizioni di impianti e destinatari a cui conferisci</li>
-      <li>Registro delle verifiche, videoverifiche dei mezzi e visite in sede quando servono</li>
-      <li>Procedure da seguire in caso di incidente o controllo su strada</li>
-      <li>Avvisi su scadenze: diritto annuale entro il 30 aprile, rinnovi, MUD</li>
-    </ul>
-  </div>
-  <div class="steps">
-    <div class="step"><div><h3>Mi scrivi o mi chiami</h3><p>In 10 minuti capisco la tua situazione e ti dico cosa serve. Gratis e senza impegno.</p></div></div>
-    <div class="step"><div><h3>Ricevi il preventivo per iscritto</h3><p>Su misura per la tua situazione, con gli oneri pubblici indicati voce per voce.</p></div></div>
-    <div class="step"><div><h3>Mi mandi i documenti una volta</h3><p>Ti do una lista precisa. Circa venti minuti di lavoro, poi ci penso io.</p></div></div>
-    <div class="step"><div><h3>Sei in regola, e resti in regola</h3><p>Rinnovi, variazioni, aggiornamenti e controlli: ti avviso io prima delle scadenze.</p></div></div>
-  </div>
-</div></section>
-
-<section class="s"><div class="wrap about">
-  <img src="/assets/octavian-zgardan.jpg" alt="Octavian Zgardan" width="320" height="400" loading="lazy">
-  <div>
-    <div class="tag">Chi sono</div>
-    <h2 class="t">Octavian Zgardan, Responsabile Tecnico Ambientale.</h2>
-    <p class="sub">Sono iscritto all'Albo Nazionale Gestori Ambientali come Responsabile Tecnico per le categorie 1, 4 e 5. Lavoro ogni giorno con il trasporto: sono anche Transport Manager in un'azienda di autotrasporto di famiglia a Parma, quindi conosco mezzi, autisti e scadenze dall'interno. Seguo direttamente ogni cliente: quando mi scrivi, rispondo io.</p>
-    <div class="pills"><span class="pill">RT Cat. 1, 4, 5 – classe F</span><span class="pill">Transport Manager</span><span class="pill">Laurea in Economia</span><span class="pill">Parma · Milano</span></div>
-    <a class="btn btn-ghost" href="/chi-sono/">Di più su di me</a>
-  </div>
-</div></section>
-
-<section class="s white"><div class="wrap">
-  <div class="tag">Garanzie</div>
-  <h2 class="t">Cosa ti prometto (e cosa no).</h2>
-  <div class="grid g2 mt-2">
-    <div class="card"><h3>Ti prometto</h3><ul class="check-list mt-1">
-      <li>Risposta in giornata nei giorni lavorativi, su WhatsApp o telefono</li>
-      <li>Prezzo scritto prima di iniziare, oneri pubblici separati</li>
-      <li>Se una pratica viene respinta per un mio errore, la ripresento senza costi</li>
-      <li>Nessun vincolo: disdetta con 60 giorni di preavviso</li>
-    </ul></div>
-    <div class="card"><h3>Non ti prometto</h3><ul class="x-list mt-1">
-      <li>Tempi certi dell'Albo: decide la Sezione regionale, nelle sue sedute</li>
-      <li>"Zero sanzioni" a prescindere: posso ridurre il rischio, non annullarlo</li>
-      <li>Firme senza controlli: l'incarico di RT deve essere effettivo</li>
-    </ul></div>
-  </div>
-</div></section>
-
-<section class="s" id="faq"><div class="wrap narrow">
-  <div class="tag">Domande frequenti</div>
-  <h2 class="t">Le domande che mi fanno più spesso.</h2>
-  {faq_html(HOME_FAQ)}
-</div></section>
-
-<section class="s white"><div class="wrap">
-  <div class="tag">Guide</div>
-  <h2 class="t">Le guide più lette.</h2>
-  <div class="grid g3 mt-2 guide-list">
-    <a class="card" href="/guide/responsabile-tecnico-dimesso-30-giorni/"><h3>Il tuo RT se ne va: cosa fare entro 30 giorni</h3><span class="more">Leggi →</span></a>
-    <a class="card" href="/guide/fir-digitale-problemi-trasportatori/"><h3>FIR digitale: i problemi più comuni dei trasportatori</h3><span class="more">Leggi →</span></a>
-    <a class="card" href="/guide/delibera-6-2025-legale-rappresentante-rt/"><h3>Delibera 6/2025: il titolare può ancora fare da RT?</h3><span class="more">Leggi →</span></a>
-  </div>
-</div></section>
-{cta_band()}
-'''
-    schema = {
-        "@context": "https://schema.org", "@type": "ProfessionalService",
-        "name": "Octavian Zgardan — Responsabile Tecnico Ambientale",
-        "url": SITE + "/", "image": SITE + "/assets/octavian-zgardan.jpg",
-        "telephone": "+39 347 291 5487", "email": EMAIL,
-        "description": "Responsabile Tecnico Ambientale esterno per imprese iscritte all'Albo Nazionale Gestori Ambientali (Cat. 1, 4, 5). Iscrizioni, variazioni, RENTRI e FIR digitale.",
-        "areaServed": {"@type": "Country", "name": "Italia"},
-        "address": {"@type": "PostalAddress", "addressLocality": "Parma", "addressRegion": "PR", "addressCountry": "IT"},
-        "founder": {"@type": "Person", "name": "Octavian Zgardan", "jobTitle": "Responsabile Tecnico Ambientale"},
-        "knowsAbout": ["Albo Nazionale Gestori Ambientali", "RENTRI", "FIR digitale", "Responsabile Tecnico", "Delibera 6/2025"],
-    }
-    return page("/", "Responsabile Tecnico Ambientale esterno | Albo Gestori Ambientali, RENTRI, FIR digitale",
-                "RT esterno per imprese di trasporto rifiuti, Cat. 1, 4 e 5: nomina, subentro entro 30 giorni, iscrizione Albo, RENTRI e FIR digitale. Preventivo gratuito in giornata. Tel. 347 291 5487.",
-                b, [schema, faq_schema(HOME_FAQ)])
-
 RT_FAQ = [
     ("Chi è obbligato ad avere un Responsabile Tecnico?",
-     "Tutte le imprese iscritte all'Albo Nazionale Gestori Ambientali nelle categorie ordinarie, come la 1, la 4 e la 5. Non serve per la Categoria 2-bis (trasporto in conto proprio)."),
+     "Le imprese iscritte all'Albo Nazionale Gestori Ambientali nelle categorie ordinarie, come la 1, la 4 e la 5: in pratica chi trasporta rifiuti per conto di altri."),
     ("Cosa succede se l'impresa resta senza RT?",
      "Va nominato un nuovo RT entro 30 giorni. Altrimenti la Sezione regionale avvia la cancellazione dalle categorie per cui manca il Responsabile Tecnico, e da quel momento non puoi più trasportare quei rifiuti."),
     ("Puoi essere RT di più aziende?",
@@ -206,12 +33,12 @@ def rt_esterno():
   <div>
     <div class="card">
       <h3>Per chi è</h3>
-      <p>Piccole imprese e ditte individuali di trasporto rifiuti in conto terzi: <a href="/settori/autospurghi/">autospurghi</a>, <a href="/settori/traslochi-sgomberi/">traslochi e sgomberi</a>, <a href="/settori/demolizioni-macerie/">macerie e demolizioni</a>, <a href="/settori/cantieri-stradali/">cantieri stradali</a>, raccolta rifiuti, RAEE professionali.</p>
+      <p>Piccole imprese e ditte individuali di trasporto rifiuti in conto terzi. Alcuni esempi: <a href="/settori/autospurghi/">autospurghi</a>, <a href="/settori/traslochi-sgomberi/">traslochi e sgomberi</a>, <a href="/settori/edilizia-demolizioni-strade/">edilizia e demolizioni</a>.</p>
       <h3 class="mt-2">Quanto costa</h3>
       <p>Dipende da categoria, mezzi e classe. Ti mando un preventivo scritto in giornata, gratis e senza impegno.</p>
       <div class="cta-row mt-2">{btn_call()}<a class="btn btn-ghost" href="/preventivo/">Richiedi il preventivo</a></div>
     </div>
-    <div class="note mt-1"><strong>Il tuo RT attuale se ne va?</strong> Hai 30 giorni per sostituirlo. <a href="/subentro-responsabile-tecnico/">Ecco come funziona il subentro</a>.</div>
+    <div class="note mt-1"><strong>Hai già un RT ma non ti segue come dovrebbe?</strong> Puoi cambiarlo quando vuoi. <a href="/cambio-responsabile-tecnico/">Ecco come funziona il cambio</a>.</div>
   </div>
 </div></section>
 <section class="s white"><div class="wrap narrow">
@@ -227,86 +54,6 @@ def rt_esterno():
     return page("/responsabile-tecnico-esterno/", "Responsabile Tecnico esterno Albo Gestori Ambientali | Preventivo gratuito",
                 "RT esterno per imprese iscritte all'Albo Gestori Ambientali in Cat. 1, 4 e 5: incarico effettivo, rinnovi e variazioni inclusi, supporto nei controlli. Senza vincoli, preventivo gratuito.",
                 b, [breadcrumb_schema(items), faq_schema(RT_FAQ), svc])
-
-SUB_FAQ = [
-    ("Da quando partono i 30 giorni?",
-     "Dal giorno in cui il Responsabile Tecnico cessa l'incarico. Non aspettare l'ultima settimana: la pratica richiede la firma del legale rappresentante e la documentazione dell'RT."),
-    ("Cosa serve da parte mia?",
-     "Documento d'identità del legale rappresentante e la firma dell'intercalare RT, che ti preparo io. La dichiarazione di compatibilità dell'incarico la preparo e la firmo io."),
-    ("Posso continuare a lavorare nel frattempo?",
-     "La situazione va regolarizzata entro il termine. Se il titolare è in possesso dei requisiti, in alcuni casi può coprire il ruolo temporaneamente: ne parliamo sulla tua situazione specifica."),
-]
-
-def subentro():
-    items = [("Home", "/"), ("Subentro Responsabile Tecnico", "/subentro-responsabile-tecnico/")]
-    b = page_hero(items, "Il tuo Responsabile Tecnico se ne va? Subentro entro 30 giorni.",
-                  "Pensione, dimissioni, verifica di idoneità non superata: se l'impresa resta senza RT hai 30 giorni per nominarne uno nuovo. Poi la Sezione regionale avvia la cancellazione delle categorie. Scrivimi oggi: preparo io tutta la pratica.",
-                  True, "Ciao Octavian, il nostro Responsabile Tecnico ha lasciato l'incarico. Ci serve un subentro. La ditta è: ") + f'''
-<section class="s"><div class="wrap split">
-  <div>
-    <h2 class="t">Come funziona</h2>
-    <div class="steps">
-      <div class="step"><div><h3>Oggi: mi scrivi</h3><p>Mi dici ragione sociale, categorie e data in cui il vecchio RT ha cessato. Controllo subito la tua posizione sull'Albo.</p></div></div>
-      <div class="step"><div><h3>Entro 48 ore: documenti pronti</h3><p>Ti mando l'intercalare RT da firmare. Preparo la dichiarazione di compatibilità dell'incarico.</p></div></div>
-      <div class="step"><div><h3>Presento la pratica</h3><p>Presento la variazione all'Albo e ti avviso quando la Sezione la approva.</p></div></div>
-      <div class="step"><div><h3>Da lì sono il tuo RT</h3><p>Con un canone mensile, senza vincoli di durata.</p></div></div>
-    </div>
-  </div>
-  <div>
-    <div class="card urgent"><span class="badge">Attenzione</span><h3>Perché non aspettare</h3><p>Se i 30 giorni passano senza un nuovo RT, rischi la cancellazione delle categorie interessate. A quel punto per tornare a trasportare quei rifiuti serve una nuova iscrizione, con nuovi costi e nuovi tempi.</p></div>
-    <div class="card mt-1"><h3>Quanto costa</h3><p>Ti mando il preventivo scritto in giornata: pratica di subentro e canone RT, senza vincoli. Se la scadenza è vicina, la pratica ha priorità assoluta.</p></div>
-  </div>
-</div></section>
-<section class="s white"><div class="wrap narrow">{faq_html(SUB_FAQ)}
-<p class="mt-2">Guida completa: <a href="/guide/responsabile-tecnico-dimesso-30-giorni/">il tuo RT se ne va, cosa fare entro 30 giorni</a>.</p></div></section>
-{cta_band("Hai meno di 30 giorni? Scrivimi adesso.", "Rispondo in giornata e ti dico subito se e come facciamo in tempo.", "Ciao Octavian, ci serve un subentro come Responsabile Tecnico. Il vecchio RT ha cessato il: ")}
-'''
-    return page("/subentro-responsabile-tecnico/", "Subentro Responsabile Tecnico entro 30 giorni | Nuovo RT Albo",
-                "Il Responsabile Tecnico ha lasciato l'incarico? Hai 30 giorni per nominarne uno nuovo all'Albo Gestori Ambientali. Preparo io la pratica di subentro. Tel. 347 291 5487.",
-                b, [breadcrumb_schema(items), faq_schema(SUB_FAQ)])
-
-ISCR_FAQ = [
-    ("Quanto tempo ci vuole?",
-     "Dipende dalla Sezione regionale, che delibera nelle sue sedute: indicativamente qualche settimana dalla presentazione della pratica completa. Il tempo che posso ridurre è quello della preparazione: con i documenti in ordine presento la domanda in pochi giorni."),
-    ("Categoria 4 o Categoria 2-bis?",
-     "La 2-bis serve a chi trasporta i propri rifiuti (conto proprio) e non richiede RT. Se trasporti rifiuti di altri, per esempio come traslocatore o autospurgo, ti serve la Categoria 4 o 5."),
-    ("Cosa serve per iniziare?",
-     "PEC aziendale attiva, firma digitale del legale rappresentante, libretti dei mezzi e capacità finanziaria dimostrabile. Ti mando una lista precisa per la tua situazione."),
-]
-
-def iscrizione():
-    items = [("Home", "/"), ("Iscrizione all'Albo Gestori Ambientali", "/iscrizione-albo-gestori-ambientali/")]
-    b = page_hero(items, "Iscrizione all'Albo Gestori Ambientali in Categoria 4 e 5",
-                  "Preparo e presento io la domanda: categoria e classe giuste, mezzi, codici EER scelti per non dover fare variazioni dopo un mese, e l'RT già incluso. Preventivo scritto con gli oneri pubblici indicati voce per voce.") + f'''
-<section class="s"><div class="wrap split">
-  <div>
-    <h2 class="t">Cosa comprende</h2>
-    <ul class="check-list">
-      <li>Verifica preliminare: categoria, classe, conto terzi o conto proprio</li>
-      <li>Scelta dei codici EER in base ai lavori che farai davvero</li>
-      <li>Compilazione della domanda e degli allegati (antimafia, requisiti, mezzi)</li>
-      <li>Attestazione di idoneità dei mezzi come Responsabile Tecnico</li>
-      <li>Calcolo e istruzioni per tutti i pagamenti pubblici</li>
-      <li>Iscrizione al RENTRI dopo la delibera, pronta per il FIR digitale</li>
-    </ul>
-    <p class="mt-2">Guida passo passo: <a href="/guide/iscrizione-albo-gestori-ambientali-guida/">come iscriversi all'Albo</a>.</p>
-  </div>
-  <div class="example">
-    <h3 style="margin-bottom:8px">Oneri pubblici (Cat. 4, classe F)</h3>
-    <div class="row"><span>Tassa di concessione governativa</span><span>€168</span></div>
-    <div class="row"><span>Diritti di segreteria + bollo</span><span>circa €34–106</span></div>
-    <div class="row"><span>Diritto annuale Albo</span><span>fino a €150</span></div>
-    <div class="row"><span>RENTRI: segreteria + contributo primo anno</span><span>€110</span></div>
-    <div class="row tot"><span>Totale indicativo</span><span>circa €310–530</span></div>
-    <p class="small muted mt-1">Sono costi pubblici, non il mio onorario. Li paga l'impresa con versamenti a suo nome: alcune Sezioni respingono i pagamenti fatti da terzi. Il mio onorario lo trovi nel preventivo scritto.</p>
-  </div>
-</div></section>
-<section class="s white"><div class="wrap narrow">{faq_html(ISCR_FAQ)}</div></section>
-{cta_band("Stai aprendo un'attività di trasporto rifiuti?", "Dimmi cosa trasporterai e con quanti mezzi: ti dico categoria, classe e costo totale prima di iniziare.", "Ciao Octavian, devo iscrivermi all'Albo Gestori Ambientali. Trasporterò: , con mezzi n.: ")}
-'''
-    return page("/iscrizione-albo-gestori-ambientali/", "Iscrizione Albo Gestori Ambientali Cat. 4 e 5 | Oneri pubblici e preventivo",
-                "Iscrizione all'Albo Nazionale Gestori Ambientali in Categoria 4 o 5: categoria, classe, mezzi e codici EER corretti, RT incluso. Oneri pubblici voce per voce e preventivo gratuito.",
-                b, [breadcrumb_schema(items), faq_schema(ISCR_FAQ)])
 
 FIR_FAQ = [
     ("Posso ancora usare il FIR cartaceo?",
@@ -376,57 +123,6 @@ def variazioni():
                 "Variazione all'Albo Gestori Ambientali per nuovo mezzo, nuovi codici EER o cambio classe, entro i 30 giorni previsti. Inclusa per i clienti con canone RT.",
                 b, [breadcrumb_schema(items), faq_schema(faqs)])
 
-def cat6():
-    items = [("Home", "/"), ("Categoria 6", "/categoria-6-trasporto-transfrontaliero/")]
-    b = page_hero(items, "Categoria 6: iscrizione per il trasporto transfrontaliero di rifiuti",
-                  "Se trasporti rifiuti oltre confine nell'ambito delle spedizioni regolate dall'Unione europea, serve l'iscrizione all'Albo in Categoria 6. Preparo la pratica e ti affianco sugli adempimenti documentali.",
-                  True, "Ciao Octavian, ci serve l'iscrizione in Categoria 6. Trasportiamo verso/da: ") + f'''
-<section class="s"><div class="wrap split">
-  <div>
-    <h2 class="t">Cosa faccio</h2>
-    <ul class="check-list">
-      <li>Verifica dei requisiti e della classe adeguata ai quantitativi</li>
-      <li>Preparazione e presentazione della domanda di iscrizione in Categoria 6</li>
-      <li>Supporto sui documenti di spedizione: lista verde (Allegato VII) o notifica preventiva</li>
-      <li>Aggiornamento sulle nuove regole europee per le spedizioni di rifiuti</li>
-    </ul>
-  </div>
-  <div class="card">
-    <h3>Da sapere</h3>
-    <p>In Categoria 6 il ruolo di Responsabile Tecnico è assunto dal legale rappresentante dell'impresa: non serve un RT esterno con canone mensile. Il mio lavoro qui è la pratica di iscrizione e il supporto agli adempimenti, con un preventivo su misura.</p>
-    <p class="mt-1">Guida: <a href="/guide/categoria-6-trasporto-transfrontaliero-guida/">come funziona la Categoria 6</a>.</p>
-  </div>
-</div></section>
-{cta_band("Vuoi una proposta per la Categoria 6?", "Dimmi Paesi coinvolti, tipi di rifiuto e numero di mezzi.", "Ciao Octavian, vorrei una proposta per la Categoria 6. Paesi: , rifiuti: , mezzi: ")}
-'''
-    return page("/categoria-6-trasporto-transfrontaliero/", "Categoria 6 Albo Gestori Ambientali: trasporto transfrontaliero di rifiuti",
-                "Iscrizione all'Albo in Categoria 6 per il trasporto transfrontaliero di rifiuti: verifica requisiti, domanda e supporto sui documenti di spedizione. Preventivo su misura.",
-                b, [breadcrumb_schema(items)])
-
-def raee():
-    items = [("Home", "/"), ("Trasporto RAEE", "/trasporto-raee/")]
-    b = page_hero(items, "Trasporto RAEE: ti serve l'Albo o no?",
-                  "La vecchia Categoria 3-bis è stata abrogata. Oggi dipende da chi ti affida i RAEE e da dove li ritiri: in un caso basta il portale del Centro di Coordinamento RAEE, nell'altro serve l'iscrizione in Cat. 4 o 5 con Responsabile Tecnico.") + f'''
-<section class="s"><div class="wrap">
-  <div class="grid g2">
-    <div class="card"><span class="badge">Caso A · regime semplificato</span><h3>Ritiri per negozi, installatori e centri assistenza</h3>
-      <p>Ritiri «uno contro uno» e «uno contro zero».</p>
-      <ul class="x-list mt-1"><li>Non serve l'iscrizione all'Albo</li><li>Non serve il Responsabile Tecnico</li></ul>
-      <ul class="check-list mt-1"><li>Registrazione gratuita al portale del Centro di Coordinamento RAEE</li><li>Trasporto con il documento generato dal portale</li></ul>
-      <p class="mt-1"><strong>Te lo dico onestamente: qui non ti serve un RT.</strong> L'orientamento è gratuito.</p></div>
-    <div class="card"><span class="badge">Caso B · regime ordinario</span><h3>Ritiri da aziende e RAEE professionali</h3>
-      <p>Dismissioni di computer e macchinari, svuotamento magazzini, raccolte strutturate.</p>
-      <ul class="check-list mt-1"><li>Iscrizione all'Albo in Cat. 4 e/o 5: frigoriferi, TV e monitor sono spesso pericolosi</li><li>Responsabile Tecnico obbligatorio</li><li>GPS sui mezzi se in Cat. 5</li><li>RENTRI, FIR digitale e registro</li></ul>
-      <p class="mt-1"><strong>Questa la seguo io dall'inizio alla fine.</strong></p></div>
-  </div>
-  <p class="mt-2">Guida completa: <a href="/guide/trasporto-raee-albo/">trasporto RAEE, quando serve l'Albo e quando no</a>.</p>
-</div></section>
-{cta_band("Non sai in quale caso rientri?", "Dimmi per chi ritiri i RAEE e che tipo di apparecchi: ti rispondo gratis.", "Ciao Octavian, trasporto RAEE e vorrei capire se mi serve l'Albo. Ritiro per: ")}
-'''
-    return page("/trasporto-raee/", "Trasporto RAEE: quando serve l'Albo Gestori Ambientali (Cat. 3-bis abrogata)",
-                "Trasporto RAEE dopo l'abrogazione della Categoria 3-bis: quando basta il portale del Centro di Coordinamento RAEE e quando servono Albo in Cat. 4/5 e Responsabile Tecnico.",
-                b, [breadcrumb_schema(items)])
-
 def settore_autospurghi():
     items = [("Home", "/"), ("Settori", "/settori/autospurghi/"), ("Autospurghi", "/settori/autospurghi/")]
     faqs = [("Un autospurgo deve iscriversi all'Albo?", "Sì, se trasporta rifiuti per conto di terzi, come il contenuto di fosse settiche, pozzi neri e fognature di privati e condomini. Di norma serve la Categoria 4, la 5 se tratta anche rifiuti pericolosi."),
@@ -459,14 +155,13 @@ def settore_autospurghi():
 def settore_traslochi():
     items = [("Home", "/"), ("Settori", "/settori/traslochi-sgomberi/"), ("Traslochi e sgomberi", "/settori/traslochi-sgomberi/")]
     faqs = [("Faccio traslochi: mi serve l'Albo?", "Se negli sgomberi porti via mobili, materassi, ingombranti o altri rifiuti dei clienti, stai trasportando rifiuti per conto di terzi: serve l'iscrizione in Categoria 4 e un Responsabile Tecnico."),
-            ("Basta la Categoria 2-bis?", "No, la 2-bis copre solo il trasporto dei rifiuti che produci tu. I rifiuti dei tuoi clienti richiedono la Categoria 4."),
             ("Quanto costa?", "Dipende da quanti furgoni hai e se sei già iscritto. Ti mando un preventivo scritto in giornata, con gli oneri pubblici indicati a parte.")]
     b = page_hero(items, "Albo Gestori Ambientali per traslochi e sgomberi",
                   "Se durante uno sgombero porti via mobili e ingombranti del cliente, stai trasportando rifiuti per conto terzi. Ti iscrivo in Categoria 4 e divento il tuo RT, con furgoni e codici giusti.",
                   True, "Ciao Octavian, faccio traslochi e sgomberi e mi serve l'iscrizione all'Albo. ") + f'''
 <section class="s"><div class="wrap split">
   <div><h2 class="t">Cosa serve</h2><ul class="check-list">
-    <li>Iscrizione in Categoria 4, classe F</li><li>Codici EER per ingombranti, legno, metalli, RAEE non pericolosi</li><li>Attestazione di idoneità dei furgoni</li><li>RENTRI e FIR digitale per ogni trasporto di rifiuti</li></ul></div>
+    <li>Iscrizione in Categoria 4, classe F</li><li>Codici EER per ingombranti, legno, metalli e altri rifiuti degli sgomberi</li><li>Attestazione di idoneità dei furgoni</li><li>RENTRI e FIR digitale per ogni trasporto di rifiuti</li></ul></div>
   <div class="card"><h3>Caso reale</h3><p>Una ditta individuale di traslochi in Lombardia con due furgoni è arrivata dal sito: iscrizione in Categoria 4 preparata e incarico di RT avviato, tutto in digitale.</p></div>
 </div></section>
 <section class="s white"><div class="wrap narrow">{faq_html(faqs)}</div></section>
@@ -544,7 +239,6 @@ def preventivo():
         <button class="quiz-opt" onclick="selectOpt(this,'cat','5')">Categoria 5 — rifiuti speciali pericolosi</button>
         <button class="quiz-opt" onclick="selectOpt(this,'cat','45')">Categorie 4 e 5 — pericolosi e non pericolosi</button>
         <button class="quiz-opt" onclick="selectOpt(this,'cat','1')">Categoria 1 — rifiuti urbani</button>
-        <button class="quiz-opt" onclick="selectOpt(this,'cat','6')">Categoria 6 — trasporto transfrontaliero</button>
       </div>
       <div class="quiz-nav"><span></span><button class="btn-quiz-next" onclick="nextStep(1)" disabled id="btn1">Avanti →</button></div>
     </div>
@@ -712,90 +406,6 @@ def not_found():
 </div></section>'''
     return page("/404.html", "Pagina non trovata | Responsabile Tecnico Ambientale", "Pagina non trovata.", b, noindex=True)
 
-CDW_FAQ = [
-    ("Se porto via le macerie dei miei cantieri mi serve il Responsabile Tecnico?",
-     "Di solito no. Se trasporti i rifiuti prodotti dalla tua attività (conto proprio) basta la Categoria 2-bis, che non richiede RT. Per i rifiuti pericolosi la 2-bis copre solo piccole quantità giornaliere (30 kg o 30 litri)."),
-    ("Quando serve la Categoria 4 con RT?",
-     "Quando trasporti macerie prodotte da altri: per esempio se fai autotrasporto con ribaltabili o scarrabili per imprese edili, o se noleggi cassoni e li ritiri pieni dai cantieri dei clienti. Con rifiuti pericolosi (per esempio terre contaminate o materiali con amianto) serve la Categoria 5."),
-    ("Le terre di scavo sono rifiuti?",
-     "Dipende. Se sono gestite come sottoprodotto secondo il DPR 120/2017, con la documentazione prevista, non sono rifiuti. Altrimenti si trasportano come rifiuto (di solito 17 05 04) con formulario."),
-    ("Quali codici EER si usano per le macerie?",
-     "I più frequenti sono 17 01 07 (miscugli di cemento, mattoni, mattonelle), 17 09 04 (rifiuti misti da costruzione e demolizione), 17 05 04 (terre e rocce), 17 04 05 (ferro e acciaio) e 17 02 01 (legno). Attenzione alle voci con asterisco, che indicano rifiuti pericolosi: un codice sbagliato sul formulario è un errore frequente e costoso."),
-]
 
-def settore_demolizioni():
-    items = [("Home", "/"), ("Settori", "/settori/demolizioni-macerie/"), ("Demolizioni e macerie", "/settori/demolizioni-macerie/")]
-    b = page_hero(items, "Trasporto macerie e rifiuti da demolizione: Albo, codici EER e FIR",
-                  "Imprese edili, demolizioni, autotrasportatori con ribaltabili e scarrabili. Ti dico se ti basta la Categoria 2-bis o se ti serve la Categoria 4 con Responsabile Tecnico, e ti seguo su codici EER e FIR digitale.",
-                  True, "Ciao Octavian, mi occupo di demolizioni / trasporto macerie e vorrei capire cosa mi serve per l'Albo. ") + f'''
-<section class="s"><div class="wrap">
-  <h2 class="t">Conto proprio o conto terzi: è la prima domanda.</h2>
-  <div class="grid g2 mt-2">
-    <div class="card"><span class="badge">Categoria 2-bis</span><h3>Porti via le macerie dei tuoi cantieri</h3>
-      <p>Sei un'impresa edile o di demolizione e trasporti i rifiuti prodotti dalla tua attività.</p>
-      <ul class="check-list mt-1"><li>Iscrizione semplificata, durata decennale</li><li>Non serve il Responsabile Tecnico</li><li>Rifiuti pericolosi solo in piccole quantità giornaliere</li></ul>
-      <p class="mt-1">Ti preparo l'iscrizione o il <strong>rinnovo della 2-bis</strong>: molte iscrizioni stanno arrivando alla scadenza dei dieci anni.</p></div>
-    <div class="card urgent"><span class="badge">Categoria 4 o 5 + RT</span><h3>Trasporti macerie per conto di altri</h3>
-      <p>Autotrasportatori con ribaltabili, scarrabili o noleggio cassoni che ritirano dai cantieri dei clienti.</p>
-      <ul class="check-list mt-1"><li>Iscrizione in Categoria 4 (5 per i pericolosi)</li><li>Responsabile Tecnico obbligatorio</li><li>Attestazione di idoneità per ogni mezzo e cassone</li><li>FIR digitale per ogni trasporto</li></ul>
-      <p class="mt-1">Qui divento il tuo RT, con un canone mensile su misura.</p></div>
-  </div>
-</div></section>
-<section class="s white"><div class="wrap split">
-  <div>
-    <h2 class="t">Gli errori che vedo più spesso nei cantieri</h2>
-    <ul class="x-list">
-      <li>Codice EER sbagliato sul formulario, magari con o senza asterisco per distrazione</li>
-      <li>Macerie di un cliente trasportate con la sola 2-bis</li>
-      <li>Terre di scavo trasportate senza decidere prima se sono rifiuto o sottoprodotto</li>
-      <li>Cassoni e mezzi nuovi non comunicati all'Albo entro 30 giorni</li>
-      <li>Impianto di destinazione non verificato per quel codice</li>
-    </ul>
-  </div>
-  <div class="card"><h3>Esperienza diretta</h3><p>Seguo come Responsabile Tecnico imprese che lavorano con rifiuti da costruzione e demolizione: verifica dei codici EER con il produttore prima della registrazione, mezzi, formulari e registro. Conosco il cantiere, non solo la norma.</p>
-    <div class="cta-row mt-1">{btn_wa("Scrivimi", "Ciao Octavian, lavoro con macerie e demolizioni. ")}</div></div>
-</div></section>
-<section class="s"><div class="wrap narrow"><h2 class="t">Domande frequenti</h2>{faq_html(CDW_FAQ)}</div></section>
-{cta_band("Non sai se ti basta la 2-bis?", "Dimmi cosa trasporti e per chi: ti rispondo gratis, in giornata.", "Ciao Octavian, trasporto macerie. Le porto via dai miei cantieri / da cantieri di altri: ")}
-'''
-    return page("/settori/demolizioni-macerie/", "Trasporto macerie e demolizioni: Albo Cat. 2-bis o Cat. 4, codici EER 17",
-                "Trasporto macerie da demolizione: quando basta la Categoria 2-bis e quando servono Categoria 4 e Responsabile Tecnico. Codici EER 17 01 07, 17 09 04, terre di scavo, FIR digitale.",
-                b, [breadcrumb_schema(items), faq_schema(CDW_FAQ)])
 
-STRADE_FAQ = [
-    ("Il fresato d'asfalto è un rifiuto?",
-     "Sì, quando viene rimosso dalla strada e portato via è un rifiuto, di solito con codice 17 03 02 (miscele bituminose non pericolose). Smette di essere rifiuto solo dopo il recupero in un impianto autorizzato, secondo le regole sul granulato di conglomerato bituminoso (DM 69/2018)."),
-    ("L'impresa stradale che porta via il proprio fresato ha bisogno dell'RT?",
-     "Se trasporta i rifiuti prodotti dalla propria attività, di solito basta la Categoria 2-bis, senza Responsabile Tecnico. Se invece i camion sono di un'impresa di trasporto che lavora per l'impresa stradale, quell'impresa deve essere iscritta in Categoria 4 con RT."),
-    ("Chi è il produttore del rifiuto in un cantiere stradale?",
-     "In genere l'impresa che esegue i lavori. È un punto da chiarire bene prima di iniziare, perché determina chi compila e firma il formulario e chi tiene il registro."),
-]
-
-def settore_strade():
-    items = [("Home", "/"), ("Settori", "/settori/cantieri-stradali/"), ("Cantieri stradali", "/settori/cantieri-stradali/")]
-    b = page_hero(items, "Cantieri stradali: fresato d'asfalto, terre e macerie da trasportare",
-                  "Fresatura, scavi, rifacimento di strade e sottoservizi producono rifiuti che vanno trasportati con l'iscrizione giusta e il formulario corretto. Seguo sia le imprese stradali sia i trasportatori che lavorano per loro.",
-                  True, "Ciao Octavian, lavoro nei cantieri stradali e vorrei capire cosa mi serve per l'Albo e i formulari. ") + f'''
-<section class="s"><div class="wrap">
-  <div class="grid g3">
-    <div class="card"><h3>Fresato d'asfalto</h3><p>Di solito EER 17 03 02. È rifiuto finché non viene recuperato in impianto autorizzato: serve formulario e destinazione corretta.</p></div>
-    <div class="card"><h3>Terre e rocce da scavo</h3><p>Rifiuto (17 05 04) oppure sottoprodotto secondo il DPR 120/2017: la scelta va fatta prima di scavare, non sul camion.</p></div>
-    <div class="card"><h3>Cemento, cordoli, ferro</h3><p>Codici della famiglia 17 da separare quando possibile: costa meno conferirli e il formulario è più semplice.</p></div>
-  </div>
-</div></section>
-<section class="s white"><div class="wrap split">
-  <div>
-    <h2 class="t">Per l'impresa stradale</h2>
-    <ul class="check-list"><li>Iscrizione o rinnovo in Categoria 2-bis per il trasporto dei propri rifiuti</li><li>Organizzazione di formulari e registro per i cantieri</li><li>Verifica degli impianti di destinazione per ogni codice</li><li>RENTRI e FIR digitale per chi lo deve usare</li></ul>
-  </div>
-  <div>
-    <h2 class="t">Per il trasportatore che lavora per lei</h2>
-    <ul class="check-list"><li>Iscrizione in Categoria 4 con i codici giusti per i cantieri stradali</li><li>Responsabile Tecnico esterno con canone mensile</li><li>Mezzi e cassoni aggiornati sull'Albo</li><li>FIR digitale in cantiere, anche dal telefono dell'autista</li></ul>
-  </div>
-</div></section>
-<section class="s"><div class="wrap narrow"><h2 class="t">Domande frequenti</h2>{faq_html(STRADE_FAQ)}</div></section>
-{cta_band("Hai un cantiere che parte?", "Dimmi cosa toglierete e chi trasporta: ti dico cosa serve prima che i camion partano.", "Ciao Octavian, ho un cantiere stradale. Rifiuti: , trasporto fatto da: ")}
-'''
-    return page("/settori/cantieri-stradali/", "Cantieri stradali: fresato d'asfalto 17 03 02, terre e macerie | Albo e FIR",
-                "Rifiuti dei cantieri stradali: fresato d'asfalto (EER 17 03 02), terre e rocce da scavo, macerie. Categoria 2-bis o Categoria 4 con RT, formulari e FIR digitale.",
-                b, [breadcrumb_schema(items), faq_schema(STRADE_FAQ)])
+from nuove import home, iscrizione, cambio_rt, settore_edilizia  # pagine riscritte

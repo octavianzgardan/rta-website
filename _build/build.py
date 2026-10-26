@@ -23,16 +23,13 @@ def add(path, html, index=True):
 
 add("/", pages.home())
 add("/responsabile-tecnico-esterno/", pages.rt_esterno())
-add("/subentro-responsabile-tecnico/", pages.subentro())
+add("/cambio-responsabile-tecnico/", pages.cambio_rt())
 add("/iscrizione-albo-gestori-ambientali/", pages.iscrizione())
 add("/fir-digitale-xfir/", pages.fir())
 add("/variazioni-albo/", pages.variazioni())
-add("/categoria-6-trasporto-transfrontaliero/", pages.cat6())
-add("/trasporto-raee/", pages.raee())
 add("/settori/autospurghi/", pages.settore_autospurghi())
 add("/settori/traslochi-sgomberi/", pages.settore_traslochi())
-add("/settori/demolizioni-macerie/", pages.settore_demolizioni())
-add("/settori/cantieri-stradali/", pages.settore_strade())
+add("/settori/edilizia-demolizioni-strade/", pages.settore_edilizia())
 add("/chi-sono/", pages.chi_sono())
 add("/contatti/", pages.contatti())
 add("/preventivo/", pages.preventivo())
@@ -47,7 +44,7 @@ for g in gs:
     p, h = guide.article_page(g["slug"], g["tag"], g["title"], g["desc"], g["date"], g["content"])
     add(p, h)
 
-prio = {"/": "1.0", "/prezzi/": "0.9", "/responsabile-tecnico-esterno/": "0.9", "/subentro-responsabile-tecnico/": "0.9", "/fir-digitale-xfir/": "0.9"}
+prio = {"/": "1.0", "/prezzi/": "0.9", "/responsabile-tecnico-esterno/": "0.9", "/cambio-responsabile-tecnico/": "0.9", "/iscrizione-albo-gestori-ambientali/": "0.95", "/fir-digitale-xfir/": "0.9"}
 urls = "".join(f"<url><loc>{SITE}{p}</loc><lastmod>{UPDATED}</lastmod><priority>{prio.get(p, '0.7')}</priority></url>\n" for p in indexable)
 open(os.path.join(ROOT, "sitemap.xml"), "w").write(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{urls}</urlset>\n')
 open(os.path.join(ROOT, "robots.txt"), "w").write(f"User-agent: *\nDisallow: /area-clienti/\nDisallow: /attiva/\n\nSitemap: {SITE}/sitemap.xml\n")

@@ -23,9 +23,10 @@ def btn_call(label=None, cls=""):
     return f'<a class="btn btn-call {cls}" href="tel:{TEL}">{ICON_TEL}{label or "Chiama " + PHONE}</a>'
 
 NAV = [
-    ("/responsabile-tecnico-esterno/", "RT esterno"),
-    ("/fir-digitale-xfir/", "FIR digitale"),
     ("/iscrizione-albo-gestori-ambientali/", "Iscrizione Albo"),
+    ("/responsabile-tecnico-esterno/", "RT esterno"),
+    ("/cambio-responsabile-tecnico/", "Cambio RT"),
+    ("/fir-digitale-xfir/", "FIR digitale"),
     ("/preventivo/", "Preventivo"),
     ("/guide/", "Guide"),
     ("/chi-sono/", "Chi sono"),
@@ -35,7 +36,7 @@ def header(path):
     links = "".join(
         f'<a href="{u}"{" aria-current=page" if path.startswith(u) else ""}>{t}</a>' for u, t in NAV)
     return f'''<div class="topbar"><div class="wrap">
-  <a class="tb-alert" href="/subentro-responsabile-tecnico/">Il tuo RT ha lasciato l'incarico? Hai 30 giorni per sostituirlo →</a>
+  <a class="tb-alert" href="/iscrizione-albo-gestori-ambientali/">Devi iscriverti all'Albo Gestori Ambientali? Ti seguo dall'inizio →</a>
   <span>Risposta in giornata · <a href="tel:{TEL}">{PHONE}</a></span>
 </div></div>
 <header class="site"><div class="wrap">
@@ -53,23 +54,20 @@ def footer():
   <div class="cols">
     <div>
       <h4>Octavian Zgardan</h4>
-      <p>Responsabile Tecnico Ambientale iscritto all'Albo Nazionale Gestori Ambientali, Cat. 1, 4 e 5, classe F. Pratiche Albo, RENTRI e FIR digitale per imprese di trasporto rifiuti in tutta Italia.</p>
+      <p>Responsabile Tecnico Ambientale iscritto all'Albo Nazionale Gestori Ambientali, Cat. 1, 4 e 5, classe F. Iscrizioni all'Albo, RENTRI e FIR digitale per imprese di trasporto rifiuti in tutta Italia.</p>
       <p class="mt-1"><a href="tel:{TEL}">Tel. {PHONE}</a><a href="{wa()}" target="_blank" rel="noopener">WhatsApp {PHONE}</a><a href="mailto:{EMAIL}">{EMAIL}</a></p>
     </div>
     <div><h4>Servizi</h4>
-      <a href="/responsabile-tecnico-esterno/">Responsabile Tecnico esterno</a>
-      <a href="/subentro-responsabile-tecnico/">Subentro RT urgente</a>
       <a href="/iscrizione-albo-gestori-ambientali/">Iscrizione all'Albo</a>
+      <a href="/responsabile-tecnico-esterno/">Responsabile Tecnico esterno</a>
+      <a href="/cambio-responsabile-tecnico/">Cambio Responsabile Tecnico</a>
       <a href="/fir-digitale-xfir/">FIR digitale e RENTRI</a>
       <a href="/variazioni-albo/">Variazioni mezzi e codici EER</a>
-      <a href="/categoria-6-trasporto-transfrontaliero/">Categoria 6</a>
-      <a href="/trasporto-raee/">Trasporto RAEE</a>
     </div>
-    <div><h4>Per chi</h4>
+    <div><h4>Esempi e guide</h4>
       <a href="/settori/autospurghi/">Autospurghi</a>
       <a href="/settori/traslochi-sgomberi/">Traslochi e sgomberi</a>
-      <a href="/settori/demolizioni-macerie/">Demolizioni e macerie</a>
-      <a href="/settori/cantieri-stradali/">Cantieri stradali</a>
+      <a href="/settori/edilizia-demolizioni-strade/">Edilizia e demolizioni</a>
       <a href="/guide/">Tutte le guide</a>
       <a href="/guide/responsabile-tecnico-dimesso-30-giorni/">RT dimesso: cosa fare</a>
       <a href="/guide/fir-digitale-problemi-trasportatori/">Problemi con il FIR digitale</a>

@@ -28,8 +28,6 @@ SLUGS = {
     "4": ("rentri-fir-digitale-trasportatori", "2026-04-01"),
     "5": ("classi-albo-gestori-ambientali", "2026-04-01"),
     "6": ("nuovo-mezzo-variazione-albo", "2026-04-01"),
-    "7": ("categoria-6-trasporto-transfrontaliero-guida", "2026-04-01"),
-    "8": ("trasporto-raee-albo", "2026-04-01"),
 }
 DESCS = {
     "1": "Chi è il Responsabile Tecnico dell'Albo Gestori Ambientali, cosa fa, chi può esserlo dopo la Delibera 6/2025 e quanto costa un RT esterno.",
@@ -70,7 +68,7 @@ NEW = [
 <li>Dimenticare la dichiarazione di compatibilità del nuovo RT, che va allegata alla pratica.</li>
 </ul>
 <h2>Quanto costa sostituire l'RT</h2>
-<p>Con me ricevi un preventivo scritto in giornata, senza vincoli di durata, e la pratica di subentro ha priorità quando la scadenza è vicina. <a href="/subentro-responsabile-tecnico/">Ecco come funziona il subentro</a>.</p>
+<p>Con me ricevi un preventivo scritto in giornata, senza vincoli di durata, e la pratica di subentro ha priorità quando la scadenza è vicina. <a href="/cambio-responsabile-tecnico/">Ecco come funziona il cambio di RT</a>.</p>
 """,
     },
     {
@@ -155,9 +153,14 @@ def article_page(slug, tag, title, desc, date, content):
 
 def all_guides():
     out = []
+    first = ["3", "2"]
+    for k in first:
+        v = OLD[k]; slug, date = SLUGS[k]
+        out.append({"slug": slug, "tag": v["tag"], "title": v["title"], "desc": DESCS[k], "date": date, "content": fix_old(k, v["content"]), "path": f"/guide/{slug}/"})
     for g in NEW:
         out.append(dict(g, path=f"/guide/{g['slug']}/"))
     for k, v in OLD.items():
+        if k not in SLUGS or k in first: continue
         slug, date = SLUGS[k]
         title = v["title"]
         out.append({"slug": slug, "tag": v["tag"].replace("Novità — ", ""), "title": title, "desc": DESCS[k], "date": date,
@@ -172,5 +175,5 @@ def guide_index(guides):
 <section class="s"><div class="wrap"><div class="grid g3 guide-list">{cards}</div></div></section>
 {cta_band()}'''
     return page("/guide/", "Guide Albo Gestori Ambientali, RENTRI e FIR digitale | Responsabile Tecnico",
-                "Guide pratiche per imprese di trasporto rifiuti: Responsabile Tecnico, Delibera 6/2025, iscrizione Albo, classi, variazioni, RENTRI e FIR digitale, RAEE, Categoria 6.",
+                "Guide pratiche per imprese di trasporto rifiuti: Responsabile Tecnico, Delibera 6/2025, iscrizione Albo, classi, variazioni, RENTRI e FIR digitale.",
                 b, [breadcrumb_schema(items)])
