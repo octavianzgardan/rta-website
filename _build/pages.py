@@ -70,6 +70,16 @@ def home():
   </div>
 </div></section>
 
+<section class="s tight"><div class="wrap">
+  <div class="tag">Per chi lavoro</div>
+  <h2 class="t">Settori che seguo ogni giorno.</h2>
+  <div class="grid g4 mt-2">
+    <a class="card" href="/settori/autospurghi/"><h3>Autospurghi</h3><p>Fosse settiche, fognature, impianti di scarico.</p><span class="more">Vedi →</span></a>
+    <a class="card" href="/settori/demolizioni-macerie/"><h3>Demolizioni e macerie</h3><p>Ribaltabili, scarrabili, cassoni dai cantieri.</p><span class="more">Vedi →</span></a>
+    <a class="card" href="/settori/cantieri-stradali/"><h3>Cantieri stradali</h3><p>Fresato d'asfalto, terre e rocce, macerie.</p><span class="more">Vedi →</span></a>
+    <a class="card" href="/settori/traslochi-sgomberi/"><h3>Traslochi e sgomberi</h3><p>Mobili e ingombranti dei clienti.</p><span class="more">Vedi →</span></a>
+  </div>
+</div></section>
 <section class="s"><div class="wrap split">
   <div>
     <div class="tag">Prezzi</div>
@@ -278,7 +288,7 @@ def rt_esterno():
   <div>
     <div class="card">
       <h3>Per chi è</h3>
-      <p>Piccole imprese e ditte individuali di trasporto rifiuti in conto terzi: autospurghi, traslocatori e sgomberi, scarrabili ed edilizia, raccolta rifiuti, trasporto RAEE professionali.</p>
+      <p>Piccole imprese e ditte individuali di trasporto rifiuti in conto terzi: <a href="/settori/autospurghi/">autospurghi</a>, <a href="/settori/traslochi-sgomberi/">traslochi e sgomberi</a>, <a href="/settori/demolizioni-macerie/">macerie e demolizioni</a>, <a href="/settori/cantieri-stradali/">cantieri stradali</a>, raccolta rifiuti, RAEE professionali.</p>
       <h3 class="mt-2">Quanto costa</h3>
       <p>€220/mese in Cat. 4 classe F con un mezzo, €290 con 2–3 mezzi, €390 in Cat. 5. Prezzi finali, senza IVA. <a href="/prezzi/">Listino completo</a>.</p>
       <div class="cta-row mt-2"><a class="btn btn-gold" href="/preventivo/">Calcola il tuo prezzo</a></div>
@@ -779,3 +789,91 @@ def not_found():
 <div class="cta-row mt-2" style="justify-content:center"><a class="btn btn-ghost" href="/">Vai alla home</a><a class="btn btn-ghost" href="/guide/">Tutte le guide</a>{btn_wa()}</div>
 </div></section>'''
     return page("/404.html", "Pagina non trovata | Responsabile Tecnico Ambientale", "Pagina non trovata.", b, noindex=True)
+
+CDW_FAQ = [
+    ("Se porto via le macerie dei miei cantieri mi serve il Responsabile Tecnico?",
+     "Di solito no. Se trasporti i rifiuti prodotti dalla tua attività (conto proprio) basta la Categoria 2-bis, che non richiede RT. Per i rifiuti pericolosi la 2-bis copre solo piccole quantità giornaliere (30 kg o 30 litri)."),
+    ("Quando serve la Categoria 4 con RT?",
+     "Quando trasporti macerie prodotte da altri: per esempio se fai autotrasporto con ribaltabili o scarrabili per imprese edili, o se noleggi cassoni e li ritiri pieni dai cantieri dei clienti. Con rifiuti pericolosi (per esempio terre contaminate o materiali con amianto) serve la Categoria 5."),
+    ("Le terre di scavo sono rifiuti?",
+     "Dipende. Se sono gestite come sottoprodotto secondo il DPR 120/2017, con la documentazione prevista, non sono rifiuti. Altrimenti si trasportano come rifiuto (di solito 17 05 04) con formulario."),
+    ("Quali codici EER si usano per le macerie?",
+     "I più frequenti sono 17 01 07 (miscugli di cemento, mattoni, mattonelle), 17 09 04 (rifiuti misti da costruzione e demolizione), 17 05 04 (terre e rocce), 17 04 05 (ferro e acciaio) e 17 02 01 (legno). Attenzione alle voci con asterisco, che indicano rifiuti pericolosi: un codice sbagliato sul formulario è un errore frequente e costoso."),
+]
+
+def settore_demolizioni():
+    items = [("Home", "/"), ("Settori", "/settori/demolizioni-macerie/"), ("Demolizioni e macerie", "/settori/demolizioni-macerie/")]
+    b = page_hero(items, "Trasporto macerie e rifiuti da demolizione: Albo, codici EER e FIR",
+                  "Imprese edili, demolizioni, autotrasportatori con ribaltabili e scarrabili. Ti dico se ti basta la Categoria 2-bis o se ti serve la Categoria 4 con Responsabile Tecnico, e ti seguo su codici EER e FIR digitale.",
+                  True, "Ciao Octavian, mi occupo di demolizioni / trasporto macerie e vorrei capire cosa mi serve per l'Albo. ") + f'''
+<section class="s"><div class="wrap">
+  <h2 class="t">Conto proprio o conto terzi: è la prima domanda.</h2>
+  <div class="grid g2 mt-2">
+    <div class="card"><span class="badge">Categoria 2-bis</span><h3>Porti via le macerie dei tuoi cantieri</h3>
+      <p>Sei un'impresa edile o di demolizione e trasporti i rifiuti prodotti dalla tua attività.</p>
+      <ul class="check-list mt-1"><li>Iscrizione semplificata, durata decennale</li><li>Non serve il Responsabile Tecnico</li><li>Rifiuti pericolosi solo in piccole quantità giornaliere</li></ul>
+      <p class="mt-1">Ti preparo l'iscrizione o il <strong>rinnovo della 2-bis</strong>: molte iscrizioni stanno arrivando alla scadenza dei dieci anni.</p></div>
+    <div class="card urgent"><span class="badge">Categoria 4 o 5 + RT</span><h3>Trasporti macerie per conto di altri</h3>
+      <p>Autotrasportatori con ribaltabili, scarrabili o noleggio cassoni che ritirano dai cantieri dei clienti.</p>
+      <ul class="check-list mt-1"><li>Iscrizione in Categoria 4 (5 per i pericolosi)</li><li>Responsabile Tecnico obbligatorio</li><li>Attestazione di idoneità per ogni mezzo e cassone</li><li>FIR digitale per ogni trasporto</li></ul>
+      <p class="mt-1">Qui divento il tuo RT: da €290/mese con 2–3 mezzi.</p></div>
+  </div>
+</div></section>
+<section class="s white"><div class="wrap split">
+  <div>
+    <h2 class="t">Gli errori che vedo più spesso nei cantieri</h2>
+    <ul class="x-list">
+      <li>Codice EER sbagliato sul formulario, magari con o senza asterisco per distrazione</li>
+      <li>Macerie di un cliente trasportate con la sola 2-bis</li>
+      <li>Terre di scavo trasportate senza decidere prima se sono rifiuto o sottoprodotto</li>
+      <li>Cassoni e mezzi nuovi non comunicati all'Albo entro 30 giorni</li>
+      <li>Impianto di destinazione non verificato per quel codice</li>
+    </ul>
+  </div>
+  <div class="card"><h3>Esperienza diretta</h3><p>Seguo come Responsabile Tecnico imprese che lavorano con rifiuti da costruzione e demolizione: verifica dei codici EER con il produttore prima della registrazione, mezzi, formulari e registro. Conosco il cantiere, non solo la norma.</p>
+    <div class="cta-row mt-1">{btn_wa("Scrivimi", "Ciao Octavian, lavoro con macerie e demolizioni. ")}</div></div>
+</div></section>
+<section class="s"><div class="wrap narrow"><h2 class="t">Domande frequenti</h2>{faq_html(CDW_FAQ)}</div></section>
+{cta_band("Non sai se ti basta la 2-bis?", "Dimmi cosa trasporti e per chi: ti rispondo gratis, in giornata.", "Ciao Octavian, trasporto macerie. Le porto via dai miei cantieri / da cantieri di altri: ")}
+'''
+    return page("/settori/demolizioni-macerie/", "Trasporto macerie e demolizioni: Albo Cat. 2-bis o Cat. 4, codici EER 17",
+                "Trasporto macerie da demolizione: quando basta la Categoria 2-bis e quando servono Categoria 4 e Responsabile Tecnico. Codici EER 17 01 07, 17 09 04, terre di scavo, FIR digitale.",
+                b, [breadcrumb_schema(items), faq_schema(CDW_FAQ)])
+
+STRADE_FAQ = [
+    ("Il fresato d'asfalto è un rifiuto?",
+     "Sì, quando viene rimosso dalla strada e portato via è un rifiuto, di solito con codice 17 03 02 (miscele bituminose non pericolose). Smette di essere rifiuto solo dopo il recupero in un impianto autorizzato, secondo le regole sul granulato di conglomerato bituminoso (DM 69/2018)."),
+    ("L'impresa stradale che porta via il proprio fresato ha bisogno dell'RT?",
+     "Se trasporta i rifiuti prodotti dalla propria attività, di solito basta la Categoria 2-bis, senza Responsabile Tecnico. Se invece i camion sono di un'impresa di trasporto che lavora per l'impresa stradale, quell'impresa deve essere iscritta in Categoria 4 con RT."),
+    ("Chi è il produttore del rifiuto in un cantiere stradale?",
+     "In genere l'impresa che esegue i lavori. È un punto da chiarire bene prima di iniziare, perché determina chi compila e firma il formulario e chi tiene il registro."),
+]
+
+def settore_strade():
+    items = [("Home", "/"), ("Settori", "/settori/cantieri-stradali/"), ("Cantieri stradali", "/settori/cantieri-stradali/")]
+    b = page_hero(items, "Cantieri stradali: fresato d'asfalto, terre e macerie da trasportare",
+                  "Fresatura, scavi, rifacimento di strade e sottoservizi producono rifiuti che vanno trasportati con l'iscrizione giusta e il formulario corretto. Seguo sia le imprese stradali sia i trasportatori che lavorano per loro.",
+                  True, "Ciao Octavian, lavoro nei cantieri stradali e vorrei capire cosa mi serve per l'Albo e i formulari. ") + f'''
+<section class="s"><div class="wrap">
+  <div class="grid g3">
+    <div class="card"><h3>Fresato d'asfalto</h3><p>Di solito EER 17 03 02. È rifiuto finché non viene recuperato in impianto autorizzato: serve formulario e destinazione corretta.</p></div>
+    <div class="card"><h3>Terre e rocce da scavo</h3><p>Rifiuto (17 05 04) oppure sottoprodotto secondo il DPR 120/2017: la scelta va fatta prima di scavare, non sul camion.</p></div>
+    <div class="card"><h3>Cemento, cordoli, ferro</h3><p>Codici della famiglia 17 da separare quando possibile: costa meno conferirli e il formulario è più semplice.</p></div>
+  </div>
+</div></section>
+<section class="s white"><div class="wrap split">
+  <div>
+    <h2 class="t">Per l'impresa stradale</h2>
+    <ul class="check-list"><li>Iscrizione o rinnovo in Categoria 2-bis per il trasporto dei propri rifiuti</li><li>Organizzazione di formulari e registro per i cantieri</li><li>Verifica degli impianti di destinazione per ogni codice</li><li>RENTRI e FIR digitale per chi lo deve usare</li></ul>
+  </div>
+  <div>
+    <h2 class="t">Per il trasportatore che lavora per lei</h2>
+    <ul class="check-list"><li>Iscrizione in Categoria 4 con i codici giusti per i cantieri stradali</li><li>Responsabile Tecnico esterno da €220/mese</li><li>Mezzi e cassoni aggiornati sull'Albo</li><li>FIR digitale in cantiere, anche dal telefono dell'autista</li></ul>
+  </div>
+</div></section>
+<section class="s"><div class="wrap narrow"><h2 class="t">Domande frequenti</h2>{faq_html(STRADE_FAQ)}</div></section>
+{cta_band("Hai un cantiere che parte?", "Dimmi cosa toglierete e chi trasporta: ti dico cosa serve prima che i camion partano.", "Ciao Octavian, ho un cantiere stradale. Rifiuti: , trasporto fatto da: ")}
+'''
+    return page("/settori/cantieri-stradali/", "Cantieri stradali: fresato d'asfalto 17 03 02, terre e macerie | Albo e FIR",
+                "Rifiuti dei cantieri stradali: fresato d'asfalto (EER 17 03 02), terre e rocce da scavo, macerie. Categoria 2-bis o Categoria 4 con RT, formulari e FIR digitale.",
+                b, [breadcrumb_schema(items), faq_schema(STRADE_FAQ)])
