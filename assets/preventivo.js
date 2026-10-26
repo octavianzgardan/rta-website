@@ -1,5 +1,5 @@
-// Preventivo automatico — listino ottobre 2026
-// Prezzi finali in regime forfettario (nessuna IVA). Oneri pubblici dell'Albo/RENTRI sempre a parte.
+// Richiesta di preventivo. Il prezzo NON viene mostrato al visitatore: lo decide Octavian caso per caso.
+// calcPrice() resta solo come riferimento interno (listino ottobre 2026).
 var EMAILJS_SERVICE='service_39l9mjp',EMAILJS_TEMPLATE='template_qez2wrs',EMAILJS_KEY='ADqyZw_RXFGZhS5OV';
 if(window.emailjs)emailjs.init(EMAILJS_KEY);
 
@@ -27,14 +27,7 @@ function classeLabel(t){
   if(t>=4000)return 'Classe E (3.000-6.000 t/anno)';
   return 'Classe F (fino a 3.000 t/anno)';
 }
-function updateLive(){
-  var el=document.getElementById('quiz-live');if(!el)return;
-  if(!ans.cat){el.style.display='none';return}
-  if(ans.cat==='6'){el.innerHTML='Categoria 6: ti preparo una proposta su misura.';el.style.display='block';return}
-  var p=calcPrice();
-  el.innerHTML='Stima attuale: <strong>'+eur(p)+'/mese</strong>'+(ans.albo==='no'?' + iscrizione '+eur(ONORARIO_ISCRIZIONE)+' una tantum (oneri pubblici a parte)':'');
-  el.style.display='block';
-}
+function updateLive(){}
 function selectOpt(btn,key,val){
   btn.closest('.quiz-options').querySelectorAll('.quiz-opt').forEach(function(b){b.classList.remove('selected')});
   btn.classList.add('selected');ans[key]=val;
@@ -74,16 +67,8 @@ async function sendPreventivo(){
   document.getElementById('qs5').classList.remove('active');
   document.getElementById('quiz-result').style.display='block';
   document.getElementById('qr-sending').style.display='block';
-  var prezzo;
-  if(ans.cat==='6'){prezzo='Categoria 6: proposta personalizzata entro 48 ore lavorative'}
-  else{
-    prezzo=eur(price)+'/mese, prezzo finale (regime forfettario, nessuna IVA). Pagamento annuale anticipato: '+eur(price*10)+' invece di '+eur(price*12)+' (2 mesi in omaggio).';
-    if(ans.albo==='no')prezzo+=' Prima iscrizione all\'Albo: onorario una tantum '+eur(ONORARIO_ISCRIZIONE)+' + oneri pubblici (tassa di concessione governativa, diritti di segreteria, bolli, diritto annuale, RENTRI) che ti indico voce per voce prima di procedere.';
-    prezzo+=' Nessun vincolo: disdetta con 60 giorni di preavviso.';
-  }
+  var prezzo='Ti preparo un preventivo su misura e te lo mando entro un giorno lavorativo. Se hai fretta chiamami o scrivimi su WhatsApp al 347 291 5487.';
   var params={to_name:nome,to_email:email,azienda:azienda,categoria:catL[ans.cat]||'—',mezzi:ans.mezzi,tonnellate:classeLabel(ans.tonn),prezzo:prezzo,telefono:tel||'non fornito',provincia:prov,albo:alboL[ans.albo]||'—'};
-  var done=document.getElementById('qr-done-price');
-  if(done)done.textContent=(ans.cat==='6')?'Proposta personalizzata in arrivo':eur(price)+'/mese';
   try{
     await emailjs.send(EMAILJS_SERVICE,EMAILJS_TEMPLATE,params);
     document.getElementById('qr-sending').style.display='none';

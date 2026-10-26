@@ -9,7 +9,7 @@
   if(location.pathname!=='/'&&location.pathname!=='/index.html')return;
   var q=new URLSearchParams(location.search);
   if(q.has('accetta')){location.replace('/attiva/'+location.search);return}
-  var map={'#preventivo':'/preventivo/','#servizio':'/prezzi/','#cat6':'/categoria-6-trasporto-transfrontaliero/','#raee':'/trasporto-raee/','#chi-sono':'/chi-sono/','#blog':'/guide/','#obbligo':'/responsabile-tecnico-esterno/','#faq-pubblica':'/#faq'};
+  var map={'#preventivo':'/preventivo/','#servizio':'/preventivo/','#cat6':'/categoria-6-trasporto-transfrontaliero/','#raee':'/trasporto-raee/','#chi-sono':'/chi-sono/','#blog':'/guide/','#obbligo':'/responsabile-tecnico-esterno/','#faq-pubblica':'/#faq'};
   if(map[location.hash]&&map[location.hash]!=='/#faq')location.replace(map[location.hash]);
 })();
 

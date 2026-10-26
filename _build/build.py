@@ -22,7 +22,6 @@ def add(path, html, index=True):
     if index: indexable.append(path)
 
 add("/", pages.home())
-add("/prezzi/", pages.prezzi())
 add("/responsabile-tecnico-esterno/", pages.rt_esterno())
 add("/subentro-responsabile-tecnico/", pages.subentro())
 add("/iscrizione-albo-gestori-ambientali/", pages.iscrizione())

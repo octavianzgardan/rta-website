@@ -26,7 +26,7 @@ NAV = [
     ("/responsabile-tecnico-esterno/", "RT esterno"),
     ("/fir-digitale-xfir/", "FIR digitale"),
     ("/iscrizione-albo-gestori-ambientali/", "Iscrizione Albo"),
-    ("/prezzi/", "Prezzi"),
+    ("/preventivo/", "Preventivo"),
     ("/guide/", "Guide"),
     ("/chi-sono/", "Chi sono"),
 ]
@@ -75,7 +75,6 @@ def footer():
       <a href="/guide/fir-digitale-problemi-trasportatori/">Problemi con il FIR digitale</a>
     </div>
     <div><h4>Informazioni</h4>
-      <a href="/prezzi/">Prezzi</a>
       <a href="/preventivo/">Preventivo online</a>
       <a href="/contatti/">Check-up gratuito</a>
       <a href="/chi-sono/">Chi sono</a>
