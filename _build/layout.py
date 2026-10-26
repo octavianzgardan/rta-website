@@ -20,7 +20,8 @@ def btn_wa(label="Scrivimi su WhatsApp", text=None, cls=""):
     return f'<a class="btn btn-wa {cls}" href="{wa(text) if text else wa()}" target="_blank" rel="noopener">{ICON_WA}{label}</a>'
 
 def btn_call(label=None, cls=""):
-    return f'<a class="btn btn-call {cls}" href="tel:{TEL}">{ICON_TEL}{label or "Chiama " + PHONE}</a>'
+    # Contatto solo via WhatsApp (Octavian è a lezione di giorno): niente pulsanti "Chiama"
+    return ""
 
 NAV = [
     ("/iscrizione-albo-gestori-ambientali/", "Iscrizione Albo"),
@@ -37,14 +38,13 @@ def header(path):
         f'<a href="{u}"{" aria-current=page" if path.startswith(u) else ""}>{t}</a>' for u, t in NAV)
     return f'''<div class="topbar"><div class="wrap">
   <a class="tb-alert" href="/iscrizione-albo-gestori-ambientali/">Devi iscriverti all'Albo Gestori Ambientali? Ti seguo dall'inizio →</a>
-  <span>Risposta in giornata · <a href="tel:{TEL}">{PHONE}</a></span>
+  <span>WhatsApp: <a href="{wa()}" target="_blank" rel="noopener">{PHONE}</a> · risposta in giornata</span>
 </div></div>
 <header class="site"><div class="wrap">
   <a class="brand" href="/"><span class="brand-logo">{LOGO}</span><span><span class="brand-name">Octavian Zgardan</span><br><span class="brand-role">Responsabile Tecnico Ambientale</span></span></a>
   <nav class="main" aria-label="Menu principale">{links}<a href="/contatti/">Contatti</a></nav>
   <div class="nav-cta">
-    <a class="btn btn-wa btn-sm btn-sm-hide" href="{wa()}" target="_blank" rel="noopener">{ICON_WA}WhatsApp</a>
-    <a class="btn btn-call btn-sm btn-sm-hide" href="tel:{TEL}">{ICON_TEL}{PHONE}</a>
+    <a class="btn btn-wa btn-sm btn-sm-hide" href="{wa()}" target="_blank" rel="noopener">{ICON_WA}WhatsApp {PHONE}</a>
     <button class="menu-btn" aria-expanded="false" aria-label="Apri il menu">Menu</button>
   </div>
 </div></header>'''
@@ -55,7 +55,7 @@ def footer():
     <div>
       <h4>Octavian Zgardan</h4>
       <p>Responsabile Tecnico Ambientale iscritto all'Albo Nazionale Gestori Ambientali, Cat. 1, 4 e 5, classe F. Iscrizioni all'Albo, RENTRI e FIR digitale per imprese di trasporto rifiuti in tutta Italia.</p>
-      <p class="mt-1"><a href="tel:{TEL}">Tel. {PHONE}</a><a href="{wa()}" target="_blank" rel="noopener">WhatsApp {PHONE}</a><a href="mailto:{EMAIL}">{EMAIL}</a></p>
+      <p class="mt-1"><a href="{wa()}" target="_blank" rel="noopener">WhatsApp {PHONE}</a><a href="mailto:{EMAIL}">{EMAIL}</a></p>
     </div>
     <div><h4>Servizi</h4>
       <a href="/iscrizione-albo-gestori-ambientali/">Iscrizione all'Albo</a>
@@ -82,7 +82,7 @@ def footer():
   </div>
   <div class="legal"><span>© 2026 Octavian Zgardan · Responsabile Tecnico Ambientale · Regime forfettario</span><span>Aggiornato il {UPDATED_IT}</span></div>
 </div></footer>
-<div class="mobile-bar">{btn_call("Chiama")}{btn_wa("WhatsApp")}</div>
+<div class="mobile-bar">{btn_wa("Scrivimi su WhatsApp · " + PHONE)}</div>
 <div id="cookie-banner" role="dialog" aria-label="Cookie"><span>Uso solo cookie tecnici e Google Fonts per i caratteri. Dettagli nella <a href="/privacy/">privacy</a>.</span><span><button class="acc" data-v="1">Ok, chiaro</button></span></div>'''
 
 def breadcrumb_schema(items):

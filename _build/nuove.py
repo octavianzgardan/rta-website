@@ -3,7 +3,7 @@ from layout import *
 
 HOME_FAQ = [
     ("Devo iscrivermi all'Albo: da dove parto?",
-     "Da una telefonata. In 10 minuti ti dico categoria e classe giuste, cosa ti serve (PEC, firma digitale, mezzi, capacità finanziaria) e quanto costa in tutto, oneri pubblici compresi. Poi preparo e presento io la domanda e divento il tuo Responsabile Tecnico."),
+     "Da un messaggio su WhatsApp. Mi racconti la tua attività e ti dico categoria e classe giuste, cosa ti serve (PEC, firma digitale, mezzi, capacità finanziaria) e quanto costa in tutto, oneri pubblici compresi. Poi preparo e presento io la domanda e divento il tuo Responsabile Tecnico."),
     ("Quanto tempo ci vuole per iscriversi?",
      "La preparazione dipende da quanto velocemente raccogliamo i documenti: di solito pochi giorni. Poi decide la Sezione regionale dell'Albo nelle sue sedute, indicativamente qualche settimana. Non ti prometto tempi che non dipendono da me."),
     ("Quanto costa?",
@@ -31,13 +31,13 @@ def home():
     <ul class="hero-points">
       <li>Preventivo scritto e gratuito, in giornata</li>
       <li>Oneri pubblici dell'Albo indicati voce per voce</li>
-      <li>Rispondo io, anche su WhatsApp</li>
+      <li>Rispondo io, direttamente su WhatsApp</li>
     </ul>
   </div>
   <div class="hero-card">
     <div class="hc-photo"><img src="/assets/octavian-zgardan.jpg" alt="Octavian Zgardan, Responsabile Tecnico Ambientale" width="64" height="64"><div><div class="hc-name">Octavian Zgardan</div><div class="hc-role">Responsabile Tecnico Ambientale · Parma e Milano</div></div></div>
     <div class="hc-price"><span>Prima iscrizione all'Albo</span><strong style="font-size:1.35rem">Dalla domanda al primo FIR</strong> <span>Categoria, mezzi, codici EER, RT, RENTRI: un solo referente.</span></div>
-    <a class="btn btn-call btn-block" href="tel:{TEL}">{ICON_TEL}Chiama {PHONE}</a>
+    <a class="btn btn-wa btn-block" href="{wa()}" target="_blank" rel="noopener">{ICON_WA}WhatsApp {PHONE}</a>
     <a class="btn btn-ghost btn-block" href="/iscrizione-albo-gestori-ambientali/">Come funziona l'iscrizione</a>
     <small>Preventivo gratuito, senza impegno.</small>
   </div>
@@ -96,7 +96,7 @@ def home():
     </ul>
   </div>
   <div class="card"><h3>Cosa ti prometto</h3><ul class="check-list mt-1">
-      <li>Risposta in giornata nei giorni lavorativi, su WhatsApp o telefono</li>
+      <li>Risposta su WhatsApp in giornata nei giorni lavorativi</li>
       <li>Preventivo scritto prima di iniziare, oneri pubblici separati</li>
       <li>Se una pratica viene respinta per un mio errore, la ripresento senza costi</li>
       <li>Nessun vincolo: disdetta con 60 giorni di preavviso</li></ul>
@@ -131,7 +131,7 @@ def home():
     <a class="card" href="/guide/fir-digitale-problemi-trasportatori/"><h3>FIR digitale: i problemi più comuni dei trasportatori</h3><span class="more">Leggi →</span></a>
   </div>
 </div></section>
-{cta_band("Stai per iniziare a trasportare rifiuti?", "Chiamami prima di comprare mezzi o accettare lavori: ti dico cosa serve per partire in regola e quanto costa in tutto.", "Ciao Octavian, sto per iniziare a trasportare rifiuti. La mia attività: ")}
+{cta_band("Stai per iniziare a trasportare rifiuti?", "Scrivimi prima di comprare mezzi o accettare lavori: ti dico cosa serve per partire in regola e quanto costa in tutto.", "Ciao Octavian, sto per iniziare a trasportare rifiuti. La mia attività: ")}
 '''
     schema = {
         "@context": "https://schema.org", "@type": "ProfessionalService",
@@ -171,7 +171,7 @@ def iscrizione():
 <section class="s"><div class="wrap">
   <h2 class="t">Come funziona, passo per passo</h2>
   <div class="steps mt-2">
-    <div class="step"><div><h3>Telefonata iniziale (gratis)</h3><p>Che rifiuti trasporterai, per chi, con quali mezzi. Ti dico categoria, classe e cosa ti manca, e ti mando il preventivo scritto con gli oneri pubblici voce per voce.</p></div></div>
+    <div class="step"><div><h3>Primo contatto su WhatsApp (gratis)</h3><p>Che rifiuti trasporterai, per chi, con quali mezzi. Ti dico categoria, classe e cosa ti manca, e ti mando il preventivo scritto con gli oneri pubblici voce per voce.</p></div></div>
     <div class="step"><div><h3>Prepariamo i requisiti</h3><p>PEC aziendale, firma digitale del legale rappresentante, capacità finanziaria, libretti dei mezzi. Se manca qualcosa ti dico come procurarlo.</p></div></div>
     <div class="step"><div><h3>Scegliamo i codici EER</h3><p>Li scegliamo in base ai lavori che farai davvero, anche nei prossimi mesi: così eviti una variazione a pagamento dopo poche settimane.</p></div></div>
     <div class="step"><div><h3>Presento io la domanda</h3><p>Compilo la domanda sul portale dell'Albo con tutti gli allegati, l'attestazione di idoneità dei mezzi e la mia nomina come Responsabile Tecnico.</p></div></div>
@@ -202,7 +202,7 @@ def iscrizione():
   </div>
 </div></section>
 <section class="s"><div class="wrap narrow"><h2 class="t">Domande frequenti sull'iscrizione</h2>{faq_html(ISCR_FAQ)}</div></section>
-{cta_band("Stai aprendo un'attività di trasporto rifiuti?", "Chiamami prima di comprare mezzi o accettare lavori: ti dico categoria, classe e costo totale prima di iniziare.", "Ciao Octavian, devo iscrivermi all'Albo Gestori Ambientali. Trasporterò: , con mezzi n.: ")}
+{cta_band("Stai aprendo un'attività di trasporto rifiuti?", "Scrivimi prima di comprare mezzi o accettare lavori: ti dico categoria, classe e costo totale prima di iniziare.", "Ciao Octavian, devo iscrivermi all'Albo Gestori Ambientali. Trasporterò: , con mezzi n.: ")}
 '''
     svc = {"@context": "https://schema.org", "@type": "Service", "name": "Iscrizione all'Albo Nazionale Gestori Ambientali in Categoria 4 e 5",
            "provider": {"@type": "Person", "name": "Octavian Zgardan"}, "areaServed": "IT"}
@@ -248,7 +248,7 @@ def cambio_rt():
   <div>
     <h2 class="t">Come funziona il cambio</h2>
     <div class="steps">
-      <div class="step"><div><h3>Mi scrivi o mi chiami</h3><p>Ragione sociale e categorie. Controllo la tua iscrizione e ti mando il preventivo scritto.</p></div></div>
+      <div class="step"><div><h3>Mi scrivi su WhatsApp</h3><p>Ragione sociale e categorie. Controllo la tua iscrizione e ti mando il preventivo scritto.</p></div></div>
       <div class="step"><div><h3>Documenti pronti in 48 ore</h3><p>Ti preparo l'intercalare RT da firmare e la dichiarazione di compatibilità.</p></div></div>
       <div class="step"><div><h3>Presento la variazione</h3><p>La nomina va all'Albo; ti avviso quando la Sezione la approva.</p></div></div>
       <div class="step"><div><h3>Facciamo il punto</h3><p>Controllo mezzi, codici EER, scadenze e RENTRI, e ti dico se c'è qualcosa da sistemare.</p></div></div>

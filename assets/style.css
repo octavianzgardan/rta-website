@@ -274,3 +274,4 @@ footer.site .legal{border-top:1px solid rgba(255,255,255,.1);margin-top:32px;pad
   #cookie-banner{padding:10px 12px;font-size:12.5px;gap:8px}
   #cookie-banner button{padding:7px 12px}
 }
+@media(max-width:760px){.mobile-bar{grid-template-columns:1fr}}

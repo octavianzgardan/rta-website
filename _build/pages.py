@@ -143,10 +143,10 @@ def settore_autospurghi():
     </ul>
   </div>
   <div class="card"><h3>Esperienza diretta</h3><p>Seguo autospurghi in Emilia-Romagna: iscrizione, aggiunta di codici EER, documentazione per gli impianti di trattamento e passaggio al FIR digitale. Conosco i problemi concreti del settore.</p>
-    <h3 class="mt-2">Preventivo</h3><p>Gratis e in giornata: chiamami o scrivimi su WhatsApp.</p></div>
+    <h3 class="mt-2">Preventivo</h3><p>Gratis e in giornata: scrivimi su WhatsApp.</p></div>
 </div></section>
 <section class="s white"><div class="wrap narrow">{faq_html(faqs)}</div></section>
-{cta_band("Hai un autospurgo?", "Scrivimi: ti dico in 10 minuti se la tua iscrizione è a posto.", "Ciao Octavian, ho un autospurgo. Vorrei un check-up della mia iscrizione all'Albo. ")}
+{cta_band("Hai un autospurgo?", "Scrivimi: ti dico in giornata se la tua iscrizione è a posto.", "Ciao Octavian, ho un autospurgo. Vorrei un check-up della mia iscrizione all'Albo. ")}
 '''
     return page("/settori/autospurghi/", "Responsabile Tecnico per autospurghi | Albo Cat. 4, EER 20 03 04 e 20 03 06",
                 "RT esterno per autospurghi: iscrizione Albo in Cat. 4, codici EER 20 03 04 e 20 03 06, convenzioni con impianti, FIR digitale per privati e condomini. Preventivo gratuito.",
@@ -198,10 +198,10 @@ def contatti():
                   "Il modo più veloce è WhatsApp: rispondo in giornata nei giorni lavorativi, anche la sera.", False) + f'''
 <section class="s"><div class="wrap split">
   <div class="card">
-    <h3>Scrivimi o chiamami</h3>
+    <h3>Scrivimi su WhatsApp</h3>
     <div class="cta-row mt-1">{btn_wa()}{btn_call()}</div>
     <p class="mt-2">Email: <a href="mailto:{EMAIL}">{EMAIL}</a></p>
-    <p class="mt-1 small muted">Se non rispondo subito al telefono sono con un cliente: ti richiamo io in giornata. Su WhatsApp puoi mandarmi direttamente foto di documenti ed errori.</p>
+    <p class="mt-1 small muted">Numero WhatsApp: {PHONE}. Rispondo in giornata nei giorni lavorativi. Puoi mandarmi direttamente foto di documenti ed errori.</p>
   </div>
   <div class="card urgent">
     <span class="badge">Gratis, senza impegno</span>
@@ -221,13 +221,13 @@ def contatti():
 <section class="s white tight"><div class="wrap center"><p>Preferisci un preventivo automatico? <a href="/preventivo/">Calcolalo in un minuto</a>.</p></div></section>
 '''
     return page("/contatti/", "Contatti e check-up gratuito Albo Gestori Ambientali | Octavian Zgardan",
-                "Contatta Octavian Zgardan, Responsabile Tecnico Ambientale: WhatsApp e telefono 347 291 5487. Check-up gratuito della tua posizione all'Albo e al RENTRI.",
+                "Contatta Octavian Zgardan, Responsabile Tecnico Ambientale: WhatsApp 347 291 5487. Check-up gratuito della tua posizione all'Albo e al RENTRI.",
                 b, [breadcrumb_schema(items)])
 
 def preventivo():
     items = [("Home", "/"), ("Preventivo", "/preventivo/")]
     b = page_hero(items, "Richiedi il preventivo per il tuo Responsabile Tecnico",
-                  "Cinque domande e ti mando il preventivo scritto entro un giorno lavorativo. Fai prima a chiamarmi? 347 291 5487.", False) + f'''
+                  "Cinque domande e ti mando il preventivo scritto entro un giorno lavorativo. Fai prima su WhatsApp? 347 291 5487.", False) + f'''
 <section class="s"><div class="wrap split">
   <div class="quiz-card">
     <div class="quiz-progress"><div class="qp-dot done" id="qp1"></div><div class="qp-dot" id="qp2"></div><div class="qp-dot" id="qp3"></div><div class="qp-dot" id="qp4"></div><div class="qp-dot" id="qp5"></div></div>
@@ -272,7 +272,7 @@ def preventivo():
     </div>
     <div class="quiz-step" id="qs5">
       <div class="quiz-q">A chi mando il preventivo?</div>
-      <div class="quiz-hint">Lascia il telefono: di solito ti chiamo in giornata.</div>
+      <div class="quiz-hint">Lascia il cellulare: di solito ti scrivo su WhatsApp in giornata.</div>
       <div class="qr-field"><label for="inp-nome">Nome e cognome *</label><input type="text" id="inp-nome" autocomplete="name" oninput="checkStep5()"></div>
       <div class="qr-field"><label for="inp-azienda">Azienda *</label><input type="text" id="inp-azienda" autocomplete="organization" oninput="checkStep5()"></div>
       <div class="qr-field"><label for="inp-email">Email *</label><input type="email" id="inp-email" autocomplete="email" oninput="checkStep5()"></div>
@@ -284,7 +284,7 @@ def preventivo():
     <div class="quiz-live" id="quiz-live"></div>
     <div class="quiz-result" id="quiz-result">
       <div class="qr-sending" id="qr-sending">Invio in corso…</div>
-      <div class="qr-success" id="qr-success"><p style="font-size:2rem">✓</p><p><strong>Richiesta inviata.</strong></p><p>Ti mando il preventivo scritto entro un giorno lavorativo. Se mi hai lasciato il telefono, ti chiamo io.</p>
+      <div class="qr-success" id="qr-success"><p style="font-size:2rem">✓</p><p><strong>Richiesta inviata.</strong></p><p>Ti mando il preventivo scritto entro un giorno lavorativo. Se mi hai lasciato il cellulare, ti scrivo su WhatsApp.</p>
         <div class="mt-1">{btn_wa("Parliamone su WhatsApp", "Ciao Octavian, ho appena compilato il preventivo sul sito. ")}</div></div>
       <div class="qr-error" id="qr-error">Qualcosa non ha funzionato nell'invio. Scrivimi su WhatsApp al {PHONE} o a {EMAIL}.</div>
       <button class="btn-quiz-restart" onclick="restartQuiz()">← Ricomincia</button>
@@ -309,7 +309,7 @@ def privacy():
 <h2>Titolare del trattamento</h2><p>Octavian Zgardan, Responsabile Tecnico Ambientale — {EMAIL} — tel. {PHONE}.</p>
 <h2>Dati raccolti e finalità</h2>
 <ul><li><strong>Modulo preventivo</strong> (nome, azienda, email, telefono, provincia e risposte al questionario): usati solo per inviarti il preventivo e ricontattarti su tua richiesta. Base giuridica: misure precontrattuali. L'invio avviene tramite il servizio EmailJS.</li>
-<li><strong>Messaggi WhatsApp, telefonate ed email</strong> che mi invii: usati per rispondere alla tua richiesta e, se diventi cliente, per gestire l'incarico.</li>
+<li><strong>Messaggi WhatsApp ed email</strong> che mi invii: usati per rispondere alla tua richiesta e, se diventi cliente, per gestire l'incarico.</li>
 <li><strong>Dati di navigazione</strong>: dati tecnici registrati dal servizio di hosting (GitHub Pages) per il funzionamento e la sicurezza del sito.</li></ul>
 <p>Non invio comunicazioni promozionali senza il tuo consenso e non cedo i dati a terzi per finalità di marketing.</p>
 <h2>Cookie e servizi esterni</h2>
