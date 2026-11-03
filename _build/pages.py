@@ -177,7 +177,7 @@ def chi_sono():
 <section class="s"><div class="wrap about">
   <img src="/assets/octavian-zgardan.jpg" alt="Octavian Zgardan" width="320" height="400">
   <div class="prose">
-    <p>Sono iscritto all'Albo Nazionale Gestori Ambientali come <strong>Responsabile Tecnico per le categorie 1, 4 e 5, classe F</strong>, dal 2024. Puoi verificarlo in qualsiasi momento sugli elenchi pubblici dell'Albo.</p>
+    <p>Sono iscritto all'Albo Nazionale Gestori Ambientali come <strong>Responsabile Tecnico per le categorie 1, 4 e 5, classe F</strong>, dal 2024. {"Numero di iscrizione: <strong>" + ALBO_N + "</strong>. " if ALBO_N else ""}Puoi verificarlo in qualsiasi momento sugli <a href="{ALBO_ELENCHI}" target="_blank" rel="noopener">elenchi pubblici dell'Albo</a>.</p>
     <p>Il trasporto lo conosco dall'interno: sono <strong>Transport Manager</strong> in un'azienda di autotrasporto di famiglia a Parma. So cosa significa avere un mezzo fermo, un autista che chiama da un piazzale o una scadenza che arriva nel momento peggiore.</p>
     <p>Ho una laurea in Economia all'Università Cattolica (110 e lode) e lavoro in modo digitale: niente pile di carta, documenti caricati una volta sola, risposte veloci su WhatsApp.</p>
     <p>Seguo un numero limitato di imprese, e ognuna direttamente: quando scrivi, rispondo io. Per ogni incarico consegno la dichiarazione di compatibilità con gli altri incarichi, come richiesto dall'Albo.</p>
@@ -310,7 +310,7 @@ def privacy():
 <h2>Dati raccolti e finalità</h2>
 <ul><li><strong>Modulo preventivo</strong> (nome, azienda, email, telefono, provincia e risposte al questionario): usati solo per inviarti il preventivo e ricontattarti su tua richiesta. Base giuridica: misure precontrattuali. L'invio avviene tramite il servizio EmailJS.</li>
 <li><strong>Messaggi WhatsApp ed email</strong> che mi invii: usati per rispondere alla tua richiesta e, se diventi cliente, per gestire l'incarico.</li>
-<li><strong>Dati di navigazione</strong>: dati tecnici registrati dal servizio di hosting (GitHub Pages) per il funzionamento e la sicurezza del sito.</li></ul>
+<li><strong>Dati di navigazione</strong>: dati tecnici registrati dal servizio di hosting (GitHub Pages) per il funzionamento e la sicurezza del sito.</li>{"<li><strong>Statistiche di visita</strong>: uso GoatCounter, un servizio di statistiche anonime che non usa cookie e non raccoglie dati personali, per contare le visite alle pagine e i clic sui pulsanti di contatto.</li>" if GOATCOUNTER else ""}</ul>
 <p>Non invio comunicazioni promozionali senza il tuo consenso e non cedo i dati a terzi per finalità di marketing.</p>
 <h2>Cookie e servizi esterni</h2>
 <ul><li>Cookie e memoria locale tecnici, necessari al funzionamento (per esempio, ricordare la chiusura dell'avviso cookie).</li>

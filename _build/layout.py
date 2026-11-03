@@ -9,6 +9,20 @@ EMAIL = "octavian@responsabiletecnicoambientale.it"
 UPDATED = "2026-10-26"
 UPDATED_IT = "26 ottobre 2026"
 
+# ── Da compilare (finché sono vuoti, sul sito non compare nulla) ──────────────
+# Statistiche visite senza cookie: crea un account gratuito su https://www.goatcounter.com
+# e scrivi qui il codice scelto (es. "rta" se il tuo indirizzo è rta.goatcounter.com).
+GOATCOUNTER = ""
+# Numero di iscrizione all'Albo come Responsabile Tecnico (es. "MI/012345"): mostrato su Chi sono.
+ALBO_N = ""
+# Link "Scrivi una recensione" della scheda Google Business (Google lo dà nella scheda).
+GOOGLE_REVIEW_URL = ""
+# Recensioni VERE dei clienti, con il loro permesso. Esempio:
+# ("Mario Rossi", "Autospurghi Rossi srl, Parma", "Testo della recensione..."),
+REVIEWS = []
+
+ALBO_ELENCHI = "https://www.albonazionalegestoriambientali.it/"
+
 def wa(text="Ciao Octavian, ti scrivo dal sito. Mi serve un'informazione sul Responsabile Tecnico."):
     return "https://wa.me/393472915487?text=" + quote(text)
 
@@ -85,6 +99,22 @@ def footer():
 <div class="mobile-bar">{btn_wa("Scrivimi su WhatsApp · " + PHONE)}</div>
 <div id="cookie-banner" role="dialog" aria-label="Cookie"><span>Uso solo cookie tecnici e Google Fonts per i caratteri. Dettagli nella <a href="/privacy/">privacy</a>.</span><span><button class="acc" data-v="1">Ok, chiaro</button></span></div>'''
 
+def reviews_section():
+    if not REVIEWS and not GOOGLE_REVIEW_URL:
+        return ""
+    cards = "".join(f'<figure class="card review"><blockquote>“{html.escape(t)}”</blockquote><figcaption><strong>{html.escape(n)}</strong><br><span class="muted">{html.escape(a)}</span></figcaption></figure>' for n, a, t in REVIEWS)
+    grid = f'<div class="grid g3 mt-2">{cards}</div>' if cards else ""
+    link = f'<p class="mt-2"><a class="btn btn-ghost" href="{GOOGLE_REVIEW_URL}" target="_blank" rel="noopener">Leggi le recensioni su Google</a></p>' if GOOGLE_REVIEW_URL else ""
+    return f'''<section class="s white"><div class="wrap">
+  <div class="tag">Cosa dicono i clienti</div>
+  <h2 class="t">Imprese che seguo.</h2>{grid}{link}
+</div></section>'''
+
+def analytics():
+    if not GOATCOUNTER:
+        return ""
+    return f'<script data-goatcounter="https://{GOATCOUNTER}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>'
+
 def breadcrumb_schema(items):
     return {"@context": "https://schema.org", "@type": "BreadcrumbList",
             "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": n, "item": SITE + u}
@@ -130,7 +160,7 @@ def page(path, title, desc, body, schemas=(), noindex=False, extra_head="", scri
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/style.css?v=20261026">
+<link rel="stylesheet" href="/assets/style.css?v=20261103">
 {ld}{extra_head}
 </head>
 <body>
@@ -139,7 +169,8 @@ def page(path, title, desc, body, schemas=(), noindex=False, extra_head="", scri
 {body}
 </main>
 {footer()}
-<script src="/assets/site.js?v=20261026" defer></script>
+<script src="/assets/site.js?v=20261103" defer></script>
+{analytics()}
 {scripts}
 </body>
 </html>
@@ -151,6 +182,7 @@ def cta_band(title="Vuoi sapere se la tua posizione all'Albo è in regola?",
     return f'''<section class="s tight"><div class="wrap"><div class="cta-band">
   <div><h2>{title}</h2><p>{text}</p></div>
   <div class="cta-row">{btn_wa("Chiedi il check-up", wa_text)}{btn_call()}</div>
+  <p class="cta-alt">Preferisci l'email? <a href="mailto:{EMAIL}">{EMAIL}</a></p>
 </div></div></section>'''
 
 def page_hero(items, h1, lead, ctas=True, wa_text=None):

@@ -23,3 +23,10 @@
     try{localStorage.setItem(k,btn.dataset.v||'1')}catch(e){}
     el.classList.remove('show')})});
 })();
+
+// Statistiche: conta i clic su WhatsApp ed email (solo se GoatCounter è attivo)
+document.addEventListener('click',function(e){
+  var a=e.target.closest&&e.target.closest('a[href]');if(!a||!window.goatcounter||!window.goatcounter.count)return;
+  var h=a.getAttribute('href'),ev=h.indexOf('wa.me/')>-1?'whatsapp':h.indexOf('mailto:')===0?'email':null;
+  if(ev)window.goatcounter.count({path:'clic-'+ev+location.pathname,title:'Clic '+ev,event:true});
+});

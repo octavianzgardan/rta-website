@@ -116,6 +116,7 @@ def home():
   </div>
 </div></section>
 
+{reviews_section()}
 <section class="s white" id="faq"><div class="wrap narrow">
   <div class="tag">Domande frequenti</div>
   <h2 class="t">Le domande che mi fanno più spesso.</h2>
